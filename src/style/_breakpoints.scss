@@ -1,0 +1,15 @@
+$size-small: 480px;
+$size-tablet: 640px;
+$size-medium: 768px;
+$size-large: 1024px;
+$size-xlarge: 1280px;
+$size-xxlarge: 1340px;
+$size-xxxlarge: 1500px;
+
+$breakpoints-small: "only screen and (min-width: #{$size-small})";
+$breakpoints-tablet: "only screen and (min-width: #{$size-tablet})";
+$breakpoints-medium: "only screen and (min-width: #{$size-medium})";
+$breakpoints-large: "only screen and (min-width: #{$size-large})";
+$breakpoints-xlarge: "only screen and (min-width: #{$size-xlarge})";
+$breakpoints-xxlarge: "only screen and (min-width: #{$size-xxlarge})";
+$breakpoints-xxxlarge: "only screen and (min-width: #{$size-xxxlarge})";

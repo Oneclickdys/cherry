@@ -1,16 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {
-  doc,
-  setDoc,
-  onSnapshot,
-  collection,
-  query,
-  where,
-  getDocs,
-  getDoc,
-  getFirestore,
-} from "firebase/firestore";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,9 +17,9 @@ const firebaseConfig = {
 export function initServer() {
   initializeApp(firebaseConfig);
 
-  setTimeout((item) => {
-    joinGame("Este es el codigo", "jany");
-  }, 2000);
+  // setTimeout((item) => {
+  //   joinGame("Este es el codigo", "jany");
+  // }, 2000);
 }
 
 export async function joinGame(code, name) {

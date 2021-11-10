@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { joinGame } from "../../../server/firebase";
+import React from "react";
+import LayoutDefault from "../../layout/LayoutDefault";
 
 const Home = () => {
-  useEffect(() => {
-    // joinGame("xx", "jany");
-  }, []);
-  return <div className="home">Hola! soy la home</div>;
+  return (
+    <LayoutDefault>
+      <div className="home">Hola! soy la home</div>
+    </LayoutDefault>
+  );
 };
 
 export default Home;
