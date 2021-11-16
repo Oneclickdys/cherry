@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export default function useJoinForm() {
+export default function useJoinForm(onSubmit) {
   const [code, setCode] = useState("");
 
   function onChangeCode(newCode) {
     setCode(newCode);
   }
 
-  function onSubmit() {
-    console.log("onSubmit " + code);
+  function onClickSubmit() {
+    onSubmit(code);
   }
 
-  return { code, onChangeCode, onSubmit };
+  return { code, onChangeCode, onClickSubmit };
 }

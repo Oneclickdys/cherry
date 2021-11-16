@@ -7,6 +7,7 @@ import {
   query,
   collection,
   onSnapshot,
+  getDoc,
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,12 +28,35 @@ export function initServer() {
   initializeApp(firebaseConfig);
 
   // setTimeout((item) => {
-  //   getCurrentPage("Este es el codigo", subscribe);
+  //   // getCurrentPage("Este es el codigo", subscribe);
+  //   joinGame("Este es el codigo2", "lolo");
   // }, 2000);
 }
 
 function subscribe(data) {
   console.log("data", data);
+}
+
+export async function createGame(code) {
+  const db = getFirestore();
+
+  await setDoc(doc(db, "game", code.toString()), {
+    currentPage: "waiting-game",
+  });
+}
+
+export async function getGame(code) {
+  const db = getFirestore();
+  let game = null;
+
+  const docRef = doc(db, "game", code);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    game = docSnap.data();
+  }
+  console.log(game, "gamegamegame");
+  return game;
 }
 
 export async function joinGame(code, name) {
