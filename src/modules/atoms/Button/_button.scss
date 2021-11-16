@@ -2,5 +2,7 @@ $button-padding-horizontal: $separator-s;
 $button-padding-vertical: $separator-xs;
 
 .button {
+  @extend .hover-basic;
+
   padding: $button-padding-vertical $button-padding-horizontal;
 }
