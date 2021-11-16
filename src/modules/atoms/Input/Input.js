@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-const Input = ({ label, placeholder, onChange, disabled }) => {
+const Input = ({ label, placeholder, value, onChange, disabled }) => {
   return (
     <div className="input">
       {label && <label className="input__label">{label}</label>}
       <div className="input__container">
         <input
           placeholder={placeholder}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
+          value={value}
         />
       </div>
     </div>
