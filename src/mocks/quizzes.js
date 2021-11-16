@@ -1,17 +1,17 @@
 export const quizzesMock = [
   {
-    name: "Cute and lonely animals",
-    description: "This is the description for the Animal quiz",
+    name: "Animales majos y peligrosos",
+    description: "Esta es la descripción del quiz de animales",
     exercises: [],
   },
   {
-    name: "Great cities of the world",
-    description: "This is the description for the Cities quiz",
+    name: "Grandes ciudades del mundo",
+    description: "Esta es la descripción del quiz de ciudades",
     exercises: [],
   },
   {
-    name: "A garden full of flowers",
-    description: "This is the description for the Flowers quiz",
+    name: "Un jardín lleno de flores",
+    description: "Esta es la descripción del quiz de flores",
     exercises: [],
   },
 ];
