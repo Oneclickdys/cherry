@@ -1,0 +1,13 @@
+$create-header-height: 50px;
+
+.create__header {
+  display: flex;
+  align-items: center;
+  height: $create-header-height;
+}
+
+.create__list {
+  @extend .centered;
+
+  height: calc(100vh - #{$create-header-height});
+}
