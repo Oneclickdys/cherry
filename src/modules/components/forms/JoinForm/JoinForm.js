@@ -11,7 +11,7 @@ function JoinForm({ onSubmit, placeholder }) {
     <div className="join-form">
       <div className="join-form__wrapper">
         <Input placeholder={placeholder} value={code} onChange={onChangeCode} />
-        <Button text="Join!" onClick={onClickSubmit} />
+        <Button onClick={onClickSubmit}>Join!</Button>
       </div>
     </div>
   );

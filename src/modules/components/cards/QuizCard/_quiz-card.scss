@@ -1,0 +1,15 @@
+$quiz-card-border-radius: 8px;
+
+.quiz-card {
+  @extend .hover-basic;
+
+  display: flex;
+  justify-content: center;
+  padding: $gutter;
+  border: 1px solid black;
+  border-radius: $quiz-card-border-radius;
+}
+
+.quiz-card__name {
+  @extend .title-h2;
+}
