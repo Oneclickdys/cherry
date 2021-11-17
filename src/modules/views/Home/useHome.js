@@ -6,7 +6,7 @@ export default function useHome() {
 
   function onSelectType(type) {
     if (type === USER_TYPES.host) {
-      navigate('/list');
+      navigate('/create');
     }
     if (type === USER_TYPES.guest) {
       navigate('/join');
