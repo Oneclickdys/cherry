@@ -1,9 +1,13 @@
-import React from "react";
-import useCode from "./useCode";
+import React from 'react';
+import useCode from './useCode';
 
 const Code = () => {
-  const { code } = useCode();
-  return <div>{code}</div>;
+  const { code, users } = useCode();
+  return (
+    <div>
+      {code} {users.map((user) => user.name)}
+    </div>
+  );
 };
 
 export default Code;

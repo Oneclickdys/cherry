@@ -4,12 +4,13 @@ import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 import useJoin from './useJoin';
 
 const Join = () => {
-  const { onSubmit, game } = useJoin();
+  const { onCheckGame, game, onJoin } = useJoin();
   return (
     <LayoutDefault>
       <div className="join">
-        {!game && <JoinForm onSubmit={onSubmit} />}
-        {game && <JoinForm onSubmit={onSubmit} placeholder={'Escribe tu nombre'} />}
+        {!game && <JoinForm onSubmit={onCheckGame} />}
+        {game && !game.status && <JoinForm onSubmit={onJoin} placeholder={'Escribe tu nombre'} />}
+        {game && game.status === 'joined' && <span>Unido</span>}
       </div>
     </LayoutDefault>
   );
