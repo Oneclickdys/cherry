@@ -1,9 +1,5 @@
 .home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend .centered-page;
 }
 
 .home__title {
@@ -14,4 +10,8 @@
   display: flex;
   justify-content: space-between;
   margin-top: $gutter;
+}
+
+.home__host-button {
+  margin-right: $gutter;
 }

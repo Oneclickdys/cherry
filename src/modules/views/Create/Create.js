@@ -1,7 +1,7 @@
 import React from 'react';
 import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 
-const QuizList = () => {
+const Create = () => {
   return (
     <LayoutDefault>
       <div className="quiz-list">THE LIST OF QUIZZES</div>
@@ -9,4 +9,4 @@ const QuizList = () => {
   );
 };
 
-export default QuizList;
+export default Create;
