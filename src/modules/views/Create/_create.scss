@@ -6,6 +6,10 @@ $create-header-height: 50px;
   height: $create-header-height;
 }
 
+.create__back {
+  @extend .hover-basic;
+}
+
 .create__list {
   @extend .centered;
 
