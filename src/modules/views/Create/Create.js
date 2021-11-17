@@ -16,6 +16,7 @@ const Create = () => {
           </div>
         </div>
         <div className="create__list">
+          <div className="create__list-title">Selecciona un quiz</div>
           <QuizList />
         </div>
       </div>
