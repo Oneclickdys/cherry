@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { collection, doc, getDoc, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
+import { PAGES } from '../utils/constants';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,8 +36,8 @@ export async function createGame(code) {
     createdAt: new Date().getTime().toString(),
   });
 
-  await setDoc(doc(db, 'game', code.toString(), 'currentPage', new Date().getTime().toString()), {
-    id: 'waiting-game',
+  await setDoc(doc(db, 'game', code.toString(), 'currentPage', 'currentPageId'), {
+    id: PAGES.waitingGame,
     currentQuestion: null,
   });
 }
@@ -73,6 +74,15 @@ export async function getUsersInGame(code, subscription) {
       users.push(doc.data());
     });
     subscription(users);
+  });
+}
+
+export async function putCurrentPage(code, page) {
+  const db = getFirestore();
+
+  await setDoc(doc(db, 'game', code, 'currentPage', 'currentPageId'), {
+    id: page,
+    currentQuestion: null,
   });
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import useCode from './useCode';
 
 const Code = () => {
-  const { code, users } = useCode();
+  const { code, users, onStartGame } = useCode();
   return (
     <div>
       {code} {users.map((user) => user.name)}
