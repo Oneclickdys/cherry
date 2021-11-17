@@ -1,3 +1,16 @@
 .hover-basic {
   cursor: pointer;
 }
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered-page {
+  @extend .centered;
+
+  height: 100vh;
+}
