@@ -13,10 +13,10 @@ const Home = () => {
         <div className="home__title">Quiero ser...</div>
         <div className="home__options-wrapper">
           <div className="home__host-button">
-            <Button text="ANFITRIÓN" onClick={() => onSelectType(USER_TYPES.host)} />
+            <Button onClick={() => onSelectType(USER_TYPES.host)}>ANFITRIÓN</Button>
           </div>
           <div className="home__guest-button">
-            <Button text="CONCURSANTE" onClick={() => onSelectType(USER_TYPES.guest)} />
+            <Button onClick={() => onSelectType(USER_TYPES.guest)}>CONCURSANTE</Button>
           </div>
         </div>
       </div>

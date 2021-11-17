@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-const Button = ({ onClick, text, loading, disabled }) => {
+const Button = ({ onClick, children, loading, disabled }) => {
   return (
     <button
       aria-label="Button"
@@ -12,7 +12,7 @@ const Button = ({ onClick, text, loading, disabled }) => {
       {loading ? (
         <div className="button__loading">Loading...</div>
       ) : (
-        <div className="button__content">{text}</div>
+        <div className="button__content">{children}</div>
       )}
     </button>
   );
