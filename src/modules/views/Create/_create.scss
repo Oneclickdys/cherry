@@ -15,3 +15,9 @@ $create-header-height: 50px;
 
   height: calc(100vh - #{$create-header-height});
 }
+
+.create__list-title {
+  @extend .title-h2;
+
+  margin-bottom: $gutter;
+}
