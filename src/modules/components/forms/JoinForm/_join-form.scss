@@ -5,10 +5,9 @@
 }
 
 .join-form__title {
-  @extend .title-h2;
+  margin-bottom: $separator-m;
 }
 
-.join-form__input,
-.join-form__title {
+.join-form__input {
   margin-bottom: $gutter;
 }

@@ -10,13 +10,13 @@ const Join = () => {
     <LayoutDefault>
       <div className="join">
         <HeaderBack />
-        {game && game.quiz && game.quiz.guid && (
-          <div className="join__quiz">
-            <div className="join__quiz-title">{game.quiz.name}</div>
-            <div className="join__quiz-description">{game.quiz.description}</div>
-          </div>
-        )}
         <div className="join__wrapper">
+          {game && game.quiz && game.quiz.guid && (
+            <div className="join__quiz">
+              <div className="join__quiz-title">{game.quiz.name}</div>
+              <div className="join__quiz-description">{game.quiz.description}</div>
+            </div>
+          )}
           {!game && (
             <JoinForm onSubmit={onCheckGame} title="Usa el código para unirte a una partida" placeholder="Código de la partida" buttonText="Ingresar" />
           )}

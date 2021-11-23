@@ -4,8 +4,12 @@ import React from 'react';
 const UsersList = ({ users }) => {
   return (
     <div className="users-list">
-      {users.map((user) => {
-        return <div className="user-list__entry">{user.name}</div>;
+      {users.map((user, idx) => {
+        return (
+          <div className="user-list__entry" key={idx}>
+            {user.name}
+          </div>
+        );
       })}
     </div>
   );
