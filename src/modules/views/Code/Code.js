@@ -22,7 +22,9 @@ const Code = () => {
           <BoxCode>{code}</BoxCode>
           <BlockHeader>Usuarios conectados</BlockHeader>
           <UsersList users={users} />
-          <Button onClick={onStartGame}>Comenzar</Button>
+          <Button onClick={onStartGame} disabled={users.length === 0}>
+            Comenzar
+          </Button>
         </div>
       </div>
     </LayoutDefault>
