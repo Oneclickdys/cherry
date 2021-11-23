@@ -18,6 +18,7 @@ const Code = () => {
   const { code, users, onStartGame } = useCode();
   const { quizCode, setQuizCode } = useAppContext();
   window.setQuizCode = (val) => setQuizCode(val);
+  setQuizCode(code);
   return (
     <VerticalCenterLayout>
       <div className="align-center">

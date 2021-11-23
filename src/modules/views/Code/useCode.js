@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { createGame, getUsersInGame, putCurrentPage } from '../../../server/firebase';
 import { PAGES } from '../../../utils/constants';
 import { getCode } from '../../../utils/general';
@@ -6,6 +7,7 @@ import { getCode } from '../../../utils/general';
 export default function useCode() {
   const [code, setCode] = useState('');
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   function onChangeUsers(newUsers) {
     setUsers(newUsers);
@@ -13,6 +15,7 @@ export default function useCode() {
 
   function onStartGame() {
     putCurrentPage(code, PAGES.countdown);
+    navigate('/countdown');
   }
 
   useEffect(() => {

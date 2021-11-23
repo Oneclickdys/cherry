@@ -3,8 +3,8 @@ import JoinForm from '../../components/forms/JoinForm/JoinForm';
 import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 import useJoin from './useJoin';
 
-const Join = () => {
-  const { onCheckGame, game, onJoin } = useJoin();
+const Join = ({ join }) => {
+  const { onCheckGame, game, onJoin } = useJoin(join);
   return (
     <LayoutDefault>
       <div className="join">
