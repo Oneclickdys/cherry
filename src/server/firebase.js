@@ -91,6 +91,12 @@ export async function getQuizzes() {
   return quizzesMock;
 }
 
+export async function getQuiz(guid) {
+  const quiz = quizzesMock.filter((quiz) => quiz.guid === guid);
+
+  return quiz && quiz.length > 0 ? quiz[0] : {};
+}
+
 // subscribirte a la pagina actual
 // export async function getCurrentPage(code, subscription) {
 //   const db = getFirestore();
