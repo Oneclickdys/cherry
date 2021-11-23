@@ -37,6 +37,7 @@ export default function useCode() {
         createGame(code, quiz);
         getUsersInGame(code, onChangeUsers);
         setCode(code);
+        setQuizCode(code);
       }, 4000);
     }
   }, [quiz]);

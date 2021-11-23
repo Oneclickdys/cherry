@@ -1,0 +1,25 @@
+$join-quiz-heigth: 100px;
+
+.join__quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: $join-quiz-heigth;
+}
+
+.join__quiz-title {
+  @extend .title-h1;
+
+  margin-bottom: $gutter;
+}
+
+.join__quiz-description {
+  @extend .subtitle;
+}
+
+.join__wrapper {
+  @extend .centered;
+
+  height: calc(100vh - #{$header-back-height + $join-quiz-heigth});
+}
