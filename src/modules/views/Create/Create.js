@@ -1,20 +1,13 @@
 import React from 'react';
-import Icon from '../../atoms/Icon/Icon';
+import HeaderBack from '../../components/HeaderBack/HeaderBack';
 import QuizList from '../../components/lists/QuizList/QuizList';
 import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
-import useCreate from './useCreate';
 
 const Create = () => {
-  const { goBack } = useCreate();
-
   return (
     <LayoutDefault>
       <div className="create">
-        <div className="create__header">
-          <div onClick={goBack} className="create__back">
-            <Icon type="back" size="big" />
-          </div>
-        </div>
+        <HeaderBack />
         <div className="create__list">
           <div className="create__list-title">Selecciona un quiz</div>
           <QuizList />

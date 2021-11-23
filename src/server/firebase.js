@@ -31,10 +31,12 @@ function subscribe(data) {
   console.log('data', data);
 }
 
-export async function createGame(code) {
+export async function createGame(code, quiz) {
+  console.log('create game quiz: ', quiz);
   const db = getFirestore();
   await setDoc(doc(db, 'game', code.toString()), {
     createdAt: new Date().getTime().toString(),
+    quiz: quiz,
   });
 
   await setDoc(doc(db, 'game', code.toString(), 'currentPage', 'currentPageId'), {

@@ -1,11 +1,22 @@
 import { useEffect, useState } from 'react';
-import { createGame, getUsersInGame, putCurrentPage } from '../../../server/firebase';
+import { useParams } from 'react-router';
+import { useAppContext } from '../../../context/AppContext';
+import { createGame, getQuiz, getUsersInGame, putCurrentPage } from '../../../server/firebase';
 import { PAGES } from '../../../utils/constants';
 import { getCode } from '../../../utils/general';
 
 export default function useCode() {
+  const { quizGuid } = useParams();
+  const { quizCode, setQuizCode } = useAppContext();
+
   const [code, setCode] = useState('');
   const [users, setUsers] = useState([]);
+  const [quiz, setQuiz] = useState({});
+
+  async function getSelectedQuiz() {
+    const response = await getQuiz(quizGuid);
+    setQuiz(response);
+  }
 
   function onChangeUsers(newUsers) {
     setUsers(newUsers);
@@ -16,13 +27,19 @@ export default function useCode() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      const code = getCode().toString();
-      createGame(code);
-      getUsersInGame(code, onChangeUsers);
-      setCode(code);
-    }, 4000);
+    getSelectedQuiz();
   }, []);
 
-  return { code, users, onStartGame };
+  useEffect(() => {
+    if (quiz.guid) {
+      setTimeout(() => {
+        const code = getCode().toString();
+        createGame(code, quiz);
+        getUsersInGame(code, onChangeUsers);
+        setCode(code);
+      }, 4000);
+    }
+  }, [quiz]);
+
+  return { code, users, quiz, onStartGame };
 }
