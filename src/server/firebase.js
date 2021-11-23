@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { collection, doc, getDoc, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
+import { quizzesMock } from '../mocks/quizzes';
 import { PAGES } from '../utils/constants';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -84,6 +85,10 @@ export async function putCurrentPage(code, page) {
     id: page,
     currentQuestion: null,
   });
+}
+
+export async function getQuizzes() {
+  return quizzesMock;
 }
 
 // subscribirte a la pagina actual
