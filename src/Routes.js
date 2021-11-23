@@ -38,7 +38,7 @@ export const Router = () => {
   return (
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/code" element={<Code />} />
+        <Route exact path="/code/:quizGuid" element={<Code />} />
         <Route exact path="/create" element={<Create />} />
         <Route exact path="/join" element={<Join join={join} />} />
         <Route exact path="/waiting-countdown" element={<GuestCountdown />} />

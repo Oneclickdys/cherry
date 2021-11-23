@@ -1,0 +1,22 @@
+.join__quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $gutter;
+}
+
+.join__quiz-title {
+  @extend .title-h1;
+
+  margin-bottom: $separator-m;
+}
+
+.join__quiz-description {
+  @extend .subtitle;
+}
+
+.join__wrapper {
+  @extend .centered;
+
+  height: calc(100vh - #{$header-back-height});
+}

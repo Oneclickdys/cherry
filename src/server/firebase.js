@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { collection, doc, getDoc, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
+import { quizzesMock } from '../mocks/quizzes';
 import { PAGES } from '../utils/constants';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,10 +31,11 @@ function subscribe(data) {
   console.log('data', data);
 }
 
-export async function createGame(code) {
+export async function createGame(code, quiz) {
   const db = getFirestore();
   await setDoc(doc(db, 'game', code.toString()), {
     createdAt: new Date().getTime().toString(),
+    quiz: quiz,
   });
 
   await setDoc(doc(db, 'game', code.toString(), 'currentPage', 'currentPageId'), {
@@ -84,6 +86,16 @@ export async function putCurrentPage(code, page) {
     id: page,
     currentQuestion: null,
   });
+}
+
+export async function getQuizzes() {
+  return quizzesMock;
+}
+
+export async function getQuiz(guid) {
+  const quiz = quizzesMock.filter((quiz) => quiz.guid === guid);
+
+  return quiz && quiz.length > 0 ? quiz[0] : {};
 }
 
 // subscribirte a la pagina actual

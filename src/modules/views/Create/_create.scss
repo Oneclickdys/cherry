@@ -1,19 +1,7 @@
-$create-header-height: 50px;
-
-.create__header {
-  display: flex;
-  align-items: center;
-  height: $create-header-height;
-}
-
-.create__back {
-  @extend .hover-basic;
-}
-
 .create__list {
   @extend .centered;
 
-  height: calc(100vh - #{$create-header-height});
+  height: calc(100vh - #{$header-back-height});
 }
 
 .create__list-title {

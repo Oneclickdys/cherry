@@ -1,0 +1,11 @@
+$header-back-height: 50px;
+
+.header-back {
+  display: flex;
+  align-items: center;
+  height: $header-back-height;
+}
+
+.header-back__icon {
+  @extend .hover-basic;
+}

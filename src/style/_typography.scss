@@ -1,9 +1,14 @@
 $font-size-01: 48px;
 $font-size-02: 36px;
+$font-size-03: 24px;
 
 .title-h1 {
   font-size: $font-size-01;
 }
 .title-h2 {
   font-size: $font-size-02;
+}
+
+.subtitle {
+  font-size: $font-size-03;
 }
