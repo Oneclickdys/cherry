@@ -18,7 +18,6 @@ const Code = () => {
       <div className="code">
         <HeaderBack />
         <div className="code__wrapper">
-          <div>context: {quizCode}</div>
           <QuizTitle title={quiz.name} subtitle={quiz.description} />
           <BoxCode>{code}</BoxCode>
           <BlockHeader>Usuarios conectados</BlockHeader>
