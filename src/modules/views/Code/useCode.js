@@ -7,15 +7,14 @@ import { getCode } from '../../../utils/general';
 
 export default function useCode() {
   const { quizGuid } = useParams();
-  const { gameCode, setGameCode } = useAppContext();
+  const { gameCode, setGameCode, currentQuiz, setCurrentQuiz } = useAppContext();
 
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
-  const [quiz, setQuiz] = useState({});
 
   async function getSelectedQuiz() {
     const response = await getQuiz(quizGuid);
-    setQuiz(response);
+    setCurrentQuiz(response);
   }
 
   function onChangeUsers(newUsers) {
@@ -32,13 +31,13 @@ export default function useCode() {
   }, []);
 
   useEffect(() => {
-    if (quiz.guid) {
+    if (currentQuiz.guid) {
       const code = getCode().toString();
-      createGame(code, quiz);
+      createGame(code, currentQuiz);
       getUsersInGame(code, onChangeUsers);
       setGameCode(code);
     }
-  }, [quiz]);
+  }, [currentQuiz]);
 
-  return { gameCode, users, quiz, onStartGame };
+  return { gameCode, users, currentQuiz, onStartGame };
 }

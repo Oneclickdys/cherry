@@ -9,13 +9,13 @@ import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 import useCode from './useCode';
 
 const Code = () => {
-  const { gameCode, users, quiz, onStartGame } = useCode();
+  const { gameCode, users, currentQuiz, onStartGame } = useCode();
   return (
     <LayoutDefault>
       <div className="code">
         <HeaderBack />
         <div className="code__wrapper">
-          <QuizTitle title={quiz.name} subtitle={quiz.description} />
+          <QuizTitle title={currentQuiz.name} subtitle={currentQuiz.description} />
           <BoxCode>{gameCode}</BoxCode>
           <BlockHeader>Usuarios conectados</BlockHeader>
           <UsersList users={users} />

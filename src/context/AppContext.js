@@ -12,6 +12,7 @@ export function useAppContext() {
 
 export default function AppContextProvider(props) {
   const [gameCode, setGameCode] = React.useState('');
-  const value = React.useMemo(() => ({ gameCode, setGameCode }), [gameCode]);
+  const [currentQuiz, setCurrentQuiz] = React.useState({});
+  const value = React.useMemo(() => ({ gameCode, setGameCode, currentQuiz, setCurrentQuiz }), [gameCode, currentQuiz]);
   return <AppContext.Provider value={value} {...props} />;
 }

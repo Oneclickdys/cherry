@@ -6,7 +6,7 @@ import { PAGES } from '../../../../utils/constants';
 
 export default function useHostCountdown() {
   const navigate = useNavigate();
-  const { gameCode } = useAppContext();
+  const { gameCode, currentQuiz } = useAppContext();
   useEffect(() => {
     setTimeout(() => {
       finishCountdown();
@@ -14,8 +14,8 @@ export default function useHostCountdown() {
   }, []);
 
   function finishCountdown() {
-    console.log('finishCountdown');
-    putCurrentPage(gameCode, PAGES.statement);
+    console.log('finishCountdown', currentQuiz);
+    putCurrentPage(gameCode, PAGES.statement, currentQuiz.exercises[0]);
     navigate('/statement');
   }
 

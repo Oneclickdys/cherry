@@ -15,8 +15,9 @@ import { PAGES } from './utils/constants';
 export const Router = () => {
   let navigate = useNavigate();
 
-  const { gameCode } = useAppContext();
+  const { gameCode, currentQuiz } = useAppContext();
   console.log('gameCode: ', gameCode);
+  console.log('currentQuiz: ', currentQuiz);
 
   function onChangePage(page) {
     console.log(page);
