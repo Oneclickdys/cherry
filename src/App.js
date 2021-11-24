@@ -1,19 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import AppContextProvider from './context/AppContext';
 import Routes from './Routes';
 import { initServer } from './server/firebase';
 import './_app.scss';
-import AppContextProvider from './context/AppContext';
 
 function App() {
+  const [isReady, setIsReady] = useState(false);
   useEffect(() => {
     initServer();
-  });
+    setIsReady(true);
+  }, []);
 
   return (
     <AppContextProvider>
-      <div className='app'>
-        <Routes />
-      </div>
+      {isReady && (
+        <div className="app">
+          <Routes />
+        </div>
+      )}
     </AppContextProvider>
   );
 }

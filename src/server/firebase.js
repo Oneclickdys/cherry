@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { collection, doc, getDoc, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
 import { quizzesMock } from '../mocks/quizzes';
 import { PAGES } from '../utils/constants';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,8 +19,7 @@ const firebaseConfig = {
 let unsubscribeUsers = [];
 
 export function initServer() {
-  initializeApp(firebaseConfig);
-
+  const init = initializeApp(firebaseConfig);
   // setTimeout((item) => {
   //   // getCurrentPage("Este es el codigo", subscribe);
   //   joinGame("Este es el codigo2", "lolo");
@@ -88,8 +87,17 @@ export async function putCurrentPage(code, page) {
   });
 }
 
-export async function getQuizzes() {
-  return quizzesMock;
+export async function getQuizzes(subscription) {
+  const db = getFirestore();
+  const q = query(collection(db, 'quizzes'));
+
+  let quizzes = [];
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    quizzes.push(doc.data());
+  });
+
+  return quizzes;
 }
 
 export async function getQuiz(guid) {

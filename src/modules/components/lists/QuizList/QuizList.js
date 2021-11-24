@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import QuizCard from '../../cards/QuizCard/QuizCard';
-import useQuizList from './useQuizList';
 
-const QuizList = () => {
-  const { list, onClickQuiz } = useQuizList();
+const QuizList = ({ list, onClickQuiz }) => {
   return (
     <div className="quiz-list">
       {list.map((quiz) => {

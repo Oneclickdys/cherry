@@ -32,13 +32,11 @@ export default function useCode() {
 
   useEffect(() => {
     if (quiz.guid) {
-      setTimeout(() => {
-        const code = getCode().toString();
-        createGame(code, quiz);
-        getUsersInGame(code, onChangeUsers);
-        setCode(code);
-        setQuizCode(code);
-      }, 4000);
+      const code = getCode().toString();
+      createGame(code, quiz);
+      getUsersInGame(code, onChangeUsers);
+      setCode(code);
+      setQuizCode(code);
     }
   }, [quiz]);
 
