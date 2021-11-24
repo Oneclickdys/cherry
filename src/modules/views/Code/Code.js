@@ -19,9 +19,7 @@ const Code = () => {
           <BoxCode>{gameCode}</BoxCode>
           <BlockHeader>Usuarios conectados</BlockHeader>
           <UsersList users={users} />
-          <Button onClick={onStartGame} disabled={users.length === 0}>
-            Comenzar
-          </Button>
+          <Button onClick={onStartGame}>Comenzar</Button>
         </div>
       </div>
     </LayoutDefault>

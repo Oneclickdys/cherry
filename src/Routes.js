@@ -7,6 +7,7 @@ import Create from './modules/views/Create/Create';
 import GuestCountdown from './modules/views/Guest/GuestCountdown/GuestCountdown';
 import Home from './modules/views/Home/Home';
 import HostCountdown from './modules/views/Host/HostCountdown/HostCountdown';
+import ShowStatement from './modules/views/Host/ShowStatement/ShowStatement';
 import Join from './modules/views/Join/Join';
 import { getCurrentPage } from './server/firebase';
 import { PAGES } from './utils/constants';
@@ -44,6 +45,7 @@ export const Router = () => {
       <Route exact path="/join" element={<Join join={join} />} />
       <Route exact path="/waiting-countdown" element={<GuestCountdown />} />
       <Route exact path="/countdown" element={<HostCountdown />} />
+      <Route exact path="/statement" element={<ShowStatement />} />
     </Routes>
   );
 };
