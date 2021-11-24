@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { collection, doc, getDoc, getDocs, getFirestore, onSnapshot, query, setDoc } from 'firebase/firestore';
-import { quizzesMock } from '../mocks/quizzes';
 import { PAGES } from '../utils/constants';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -91,7 +90,7 @@ export async function putCurrentPage(code, page, question = {}) {
   });
 }
 
-export async function getQuizzes(subscription) {
+export async function getQuizzes() {
   const db = getFirestore();
   const q = query(collection(db, 'quizzes'));
 
@@ -105,9 +104,16 @@ export async function getQuizzes(subscription) {
 }
 
 export async function getQuiz(guid) {
-  const quiz = quizzesMock.filter((quiz) => quiz.guid === guid);
+  const db = getFirestore();
+  let quiz = null;
 
-  return quiz && quiz.length > 0 ? quiz[0] : {};
+  const docRef = doc(db, 'quizzes', guid);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap, 'docSnap');
+  if (docSnap.exists()) {
+    quiz = docSnap.data();
+  }
+  return quiz;
 }
 
 // subscribirte a la pagina actual
