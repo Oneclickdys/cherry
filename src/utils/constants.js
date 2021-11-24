@@ -6,4 +6,6 @@ export const USER_TYPES = {
 export const PAGES = {
   waitingGame: 'waiting-game',
   countdown: 'countdown',
+  statement: 'statement',
+  answering: 'answering',
 };
