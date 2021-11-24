@@ -34,7 +34,11 @@ export async function createGame(code, quiz) {
   const db = getFirestore();
   await setDoc(doc(db, 'game', code.toString()), {
     createdAt: new Date().getTime().toString(),
-    quiz: quiz,
+    quiz: {
+      guid: quiz.guid,
+      name: quiz.name,
+      description: quiz.description,
+    },
   });
 
   await setDoc(doc(db, 'game', code.toString(), 'currentPage', 'currentPageId'), {

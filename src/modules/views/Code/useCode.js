@@ -7,9 +7,8 @@ import { getCode } from '../../../utils/general';
 
 export default function useCode() {
   const { quizGuid } = useParams();
-  const { quizCode, setQuizCode } = useAppContext();
+  const { gameCode, setGameCode } = useAppContext();
 
-  const [code, setCode] = useState('');
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
   const [quiz, setQuiz] = useState({});
@@ -24,7 +23,7 @@ export default function useCode() {
   }
 
   function onStartGame() {
-    putCurrentPage(code, PAGES.countdown);
+    putCurrentPage(gameCode, PAGES.countdown);
     navigate('/countdown');
   }
 
@@ -37,10 +36,9 @@ export default function useCode() {
       const code = getCode().toString();
       createGame(code, quiz);
       getUsersInGame(code, onChangeUsers);
-      setCode(code);
-      setQuizCode(code);
+      setGameCode(code);
     }
   }, [quiz]);
 
-  return { code, users, quiz, onStartGame };
+  return { gameCode, users, quiz, onStartGame };
 }

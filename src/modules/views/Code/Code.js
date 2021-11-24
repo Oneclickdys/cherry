@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAppContext } from '../../../context/AppContext';
 import BlockHeader from '../../atoms/BlockHeader/BlockHeader';
 import BoxCode from '../../atoms/BoxCode/BoxCode';
 import Button from '../../atoms/Button/Button';
@@ -10,17 +9,14 @@ import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 import useCode from './useCode';
 
 const Code = () => {
-  const { code, users, quiz, onStartGame } = useCode();
-  const { quizCode, setQuizCode } = useAppContext();
-  window.setQuizCode = (val) => setQuizCode(val);
-  setQuizCode(code);
+  const { gameCode, users, quiz, onStartGame } = useCode();
   return (
     <LayoutDefault>
       <div className="code">
         <HeaderBack />
         <div className="code__wrapper">
           <QuizTitle title={quiz.name} subtitle={quiz.description} />
-          <BoxCode>{code}</BoxCode>
+          <BoxCode>{gameCode}</BoxCode>
           <BlockHeader>Usuarios conectados</BlockHeader>
           <UsersList users={users} />
           <Button onClick={onStartGame} disabled={users.length === 0}>
