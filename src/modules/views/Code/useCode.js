@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useAppContext } from '../../../context/AppContext';
 import { createGame, getQuiz, getUsersInGame, putCurrentPage } from '../../../server/firebase';
 import { PAGES } from '../../../utils/constants';
@@ -11,6 +11,7 @@ export default function useCode() {
 
   const [code, setCode] = useState('');
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
   const [quiz, setQuiz] = useState({});
 
   async function getSelectedQuiz() {
@@ -24,6 +25,7 @@ export default function useCode() {
 
   function onStartGame() {
     putCurrentPage(code, PAGES.countdown);
+    navigate('/countdown');
   }
 
   useEffect(() => {

@@ -13,6 +13,7 @@ const Code = () => {
   const { code, users, quiz, onStartGame } = useCode();
   const { quizCode, setQuizCode } = useAppContext();
   window.setQuizCode = (val) => setQuizCode(val);
+  setQuizCode(code);
   return (
     <LayoutDefault>
       <div className="code">

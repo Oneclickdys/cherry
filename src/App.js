@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppContextProvider from './context/AppContext';
 import Routes from './Routes';
 import { initServer } from './server/firebase';
@@ -15,7 +16,9 @@ function App() {
     <AppContextProvider>
       {isReady && (
         <div className="app">
-          <Routes />
+          <Router>
+            <Routes />
+          </Router>
         </div>
       )}
     </AppContextProvider>

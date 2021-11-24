@@ -107,11 +107,11 @@ export async function getQuiz(guid) {
 }
 
 // subscribirte a la pagina actual
-// export async function getCurrentPage(code, subscription) {
-//   const db = getFirestore();
-
-//   const q = query(collection(db, "game", code, "currentPage"));
-//   const unsubscribe = onSnapshot(q, (snapshot) => {
-//     console.log(snapshot.data());
-//   });
-// }
+export async function getCurrentPage(code, subscription) {
+  console.log(code, 'codecode');
+  const db = getFirestore();
+  const unsub = onSnapshot(doc(db, 'game', code, 'currentPage', 'currentPageId'), (doc) => {
+    console.log('Current data: ', doc.data());
+    subscription(doc.data());
+  });
+}
