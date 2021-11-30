@@ -1,0 +1,9 @@
+.guest-countdown__wrapper {
+  @extend .centered-page;
+}
+
+.guest-countdown__title {
+  @extend .title-h2;
+
+  margin-bottom: $separator-xl;
+}
