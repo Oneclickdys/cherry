@@ -1,3 +1,8 @@
-.loading {
-  @extend .title-h1;
+$loading-big-size: 100px;
+
+.loading--size-big {
+  span {
+    width: $loading-big-size !important;
+    height: $loading-big-size !important;
+  }
 }
