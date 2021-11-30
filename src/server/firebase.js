@@ -118,10 +118,23 @@ export async function getQuiz(guid) {
 
 // subscribirte a la pagina actual
 export async function getCurrentPage(code, subscription) {
-  console.log(code, 'codecode');
   const db = getFirestore();
   const unsub = onSnapshot(doc(db, 'game', code, 'currentPage', 'currentPageId'), (doc) => {
     console.log('Current data: ', doc.data());
     subscription(doc.data());
   });
+}
+
+export async function getOnceCurrentPage(code, subscription) {
+  const db = getFirestore();
+  let currentPage = null;
+  console.log(code, 'codecodecodecode');
+  const docRef = doc(db, 'game', code, 'currentPage', 'currentPageId');
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap, 'docSnap');
+  if (docSnap.exists()) {
+    currentPage = docSnap.data();
+  }
+  console.log(currentPage, 'currentPagecurrentPagecurrentPagecurrentPage');
+  return currentPage;
 }
