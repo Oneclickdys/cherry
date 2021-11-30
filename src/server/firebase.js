@@ -81,7 +81,7 @@ export async function getUsersInGame(code, subscription) {
   });
 }
 
-export async function putCurrentPage(code, page, question = {}, index) {
+export async function putCurrentPage(code, page, question = {}, index = 0) {
   const db = getFirestore();
 
   await setDoc(doc(db, 'game', code, 'currentPage', 'currentPageId'), {

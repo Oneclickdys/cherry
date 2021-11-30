@@ -1,16 +1,8 @@
-import React, { useEffect } from 'react';
-import { useAppContext } from '../../../../context/AppContext';
+import React from 'react';
 import useHostStatement from './useHostStatement';
 
 const HostStatement = () => {
-  const { currentPage, goQuestion } = useHostStatement();
-  const { gameCode, currentQuiz } = useAppContext();
-
-  useEffect(() => {
-    setTimeout(() => {
-      goQuestion();
-    }, 4000);
-  }, []);
+  const { currentPage } = useHostStatement();
 
   return <div>{currentPage?.currentQuestion?.statement}</div>;
 };

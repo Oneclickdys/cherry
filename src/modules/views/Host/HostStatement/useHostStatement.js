@@ -13,14 +13,18 @@ export default function useHostStatement() {
     getCurrentPage();
   }, []);
 
-  function goQuestion() {
-    putCurrentPage(gameCode, PAGES.question, currentQuiz.questions[currentPage.indexQuestion], currentPage.indexQuestion);
+  const goQuestion = (page) => {
+    putCurrentPage(gameCode, PAGES.question, currentQuiz.questions[page.indexQuestion], page.indexQuestion);
     navigate(`/question`);
-  }
+  };
 
   async function getCurrentPage() {
-    setCurrentPage(await getOnceCurrentPage(gameCode));
+    const page = await getOnceCurrentPage(gameCode);
+    setCurrentPage(page);
+    setTimeout(() => {
+      goQuestion(page);
+    }, 4000);
   }
 
-  return { currentPage, goQuestion };
+  return { currentPage };
 }

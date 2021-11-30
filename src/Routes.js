@@ -5,15 +5,15 @@ import { useAppContext } from './context/AppContext';
 import Code from './modules/views/Code/Code';
 import Create from './modules/views/Create/Create';
 import GuestCountdown from './modules/views/Guest/GuestCountdown/GuestCountdown';
+import GuestQuestion from './modules/views/Guest/GuestQuestion/GuestQuestion';
 import GuestStatement from './modules/views/Guest/GuestStatement/GuestStatement';
 import Home from './modules/views/Home/Home';
 import HostCountdown from './modules/views/Host/HostCountdown/HostCountdown';
+import HostQuestion from './modules/views/Host/HostQuestion/HostQuestion';
 import HostStatement from './modules/views/Host/HostStatement/HostStatement';
 import Join from './modules/views/Join/Join';
 import { getCurrentPage } from './server/firebase';
 import { PAGES } from './utils/constants';
-import HostQuestion from './modules/views/Host/HostQuestion/HostQuestion';
-import GuestQuestion from './modules/views/Guest/GuestQuestion/GuestQuestion';
 
 export const Router = () => {
   let navigate = useNavigate();
@@ -28,7 +28,7 @@ export const Router = () => {
     } else if (page.id === PAGES.statement) {
       navigate(`/waiting-statement`);
     } else if (page.id === PAGES.question) {
-      navigate(`/question-option`);
+      navigate(`/question-options`);
     }
   }
 
