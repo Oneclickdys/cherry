@@ -81,12 +81,13 @@ export async function getUsersInGame(code, subscription) {
   });
 }
 
-export async function putCurrentPage(code, page, question = {}) {
+export async function putCurrentPage(code, page, question = {}, index) {
   const db = getFirestore();
 
   await setDoc(doc(db, 'game', code, 'currentPage', 'currentPageId'), {
     id: page,
     currentQuestion: question,
+    indexQuestion: index,
   });
 }
 

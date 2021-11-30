@@ -15,7 +15,7 @@ export default function useHostCountdown() {
 
   function finishCountdown() {
     console.log('finishCountdown', currentQuiz);
-    putCurrentPage(gameCode, PAGES.statement, currentQuiz.questions[0]);
+    putCurrentPage(gameCode, PAGES.statement, currentQuiz.questions[0], 0);
     navigate('/statement');
   }
 

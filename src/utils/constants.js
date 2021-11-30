@@ -7,5 +7,5 @@ export const PAGES = {
   waitingGame: 'waiting-game',
   countdown: 'countdown',
   statement: 'statement',
-  answering: 'answering',
+  question: 'question',
 };

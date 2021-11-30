@@ -25,6 +25,8 @@ export const Router = () => {
       navigate(`/waiting-countdown`);
     } else if (page.id === PAGES.statement) {
       navigate(`/waiting-statement`);
+    } else if (page.id === PAGES.question) {
+      navigate(`/question-option`);
     }
   }
 
