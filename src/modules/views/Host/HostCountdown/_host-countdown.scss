@@ -1,0 +1,23 @@
+$host-countdown-size: 120px;
+
+.host-countdown__wrapper {
+  @extend .centered-page;
+}
+
+.host-countdown__title {
+  @extend .title-h2;
+
+  margin-bottom: $separator-xl;
+}
+
+.host-countdown__countdown {
+  @extend .title-h1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $host-countdown-size;
+  width: $host-countdown-size;
+  background-color: $color-gray-01;
+  border-radius: $border-radius-01;
+}
