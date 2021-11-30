@@ -12,6 +12,8 @@ import HostStatement from './modules/views/Host/HostStatement/HostStatement';
 import Join from './modules/views/Join/Join';
 import { getCurrentPage } from './server/firebase';
 import { PAGES } from './utils/constants';
+import HostQuestion from './modules/views/Host/HostQuestion/HostQuestion';
+import GuestQuestion from './modules/views/Guest/GuestQuestion/GuestQuestion';
 
 export const Router = () => {
   let navigate = useNavigate();
@@ -43,6 +45,9 @@ export const Router = () => {
       {/* <Route exact path="/statement" element={<ShowStatement />} /> */}
       <Route exact path="/statement" element={<HostStatement />} />
       <Route exact path="/waiting-statement" element={<GuestStatement currentPage={currentPage} />} />
+      <Route exact path="/host-question" element={<GuestStatement currentPage={currentPage} />} />
+      <Route exact path="/question" element={<HostQuestion currentPage={currentPage} />} />
+      <Route exact path="/question-options" element={<GuestQuestion currentPage={currentPage} />} />
     </Routes>
   );
 };
