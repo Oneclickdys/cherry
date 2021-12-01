@@ -8,8 +8,8 @@ import QuizTitle from '../../components/QuizTitle/QuizTitle';
 import LayoutDefault from '../../layout/LayoutDefault/LayoutDefault';
 import useCode from './useCode';
 
-const Code = () => {
-  const { gameCode, users, currentQuiz, onStartGame } = useCode();
+const Code = ({ onListenerChangePage }) => {
+  const { gameCode, users, currentQuiz, onStartGame } = useCode(onListenerChangePage);
   return (
     <LayoutDefault>
       <div className="code">

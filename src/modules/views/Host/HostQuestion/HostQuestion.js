@@ -2,8 +2,8 @@ import React from 'react';
 import Button from '../../../atoms/Button/Button';
 import useHostQuestion from './useHostQuestion';
 
-function HostQuestion() {
-  const { onNext } = useHostQuestion();
+function HostQuestion({ currentPage }) {
+  const { onNext } = useHostQuestion(currentPage);
 
   return (
     <div>

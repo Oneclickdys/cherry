@@ -27,7 +27,7 @@ export const Router = () => {
 
   const { gameCode, currentQuiz } = useAppContext();
 
-  function onChangePage(page) {
+  function onChangePageGuest(page) {
     setCurrentPage(page);
     if (page.id === PAGES.countdown) {
       navigate(`/waiting-countdown`);
@@ -46,14 +46,23 @@ export const Router = () => {
     }
   }
 
+  function onChangePageHost(page) {
+    console.log(page, 'pagepagepagepage');
+    setCurrentPage(page);
+  }
+
   function join(code) {
-    getCurrentPage(code, onChangePage);
+    getCurrentPage(code, onChangePageGuest);
+  }
+
+  function onListenerChangePage(code) {
+    getCurrentPage(code, onChangePageHost);
   }
 
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/code/:quizGuid" element={<Code />} />
+      <Route exact path="/code/:quizGuid" element={<Code onListenerChangePage={onListenerChangePage} />} />
       <Route exact path="/create" element={<Create />} />
       <Route exact path="/join" element={<Join join={join} />} />
       <Route exact path="/waiting-countdown" element={<GuestCountdown />} />
@@ -61,12 +70,11 @@ export const Router = () => {
       {/* <Route exact path="/statement" element={<ShowStatement />} /> */}
       <Route exact path="/statement" element={<HostStatement />} />
       <Route exact path="/waiting-statement" element={<GuestStatement currentPage={currentPage} />} />
-      <Route exact path="/host-question" element={<GuestStatement currentPage={currentPage} />} />
       <Route exact path="/question" element={<HostQuestion currentPage={currentPage} />} />
       <Route exact path="/question-options" element={<GuestQuestion currentPage={currentPage} />} />
       <Route exact path="/answers" element={<HostAnswers currentPage={currentPage} />} />
       <Route exact path="/answer-status" element={<GuestAnswers currentPage={currentPage} />} />
-      <Route exact path="/ranking" element={<HostRanking />} />
+      <Route exact path="/ranking" element={<HostRanking currentPage={currentPage} />} />
       <Route exact path="/position" element={<GuestRanking />} />
       <Route exact path="/podium" element={<HostPodium />} />
       <Route exact path="/final-position" element={<GuestPodium />} />

@@ -5,7 +5,7 @@ import { createGame, getQuiz, getUsersInGame, putCurrentPage } from '../../../se
 import { PAGES } from '../../../utils/constants';
 import { getCode } from '../../../utils/general';
 
-export default function useCode() {
+export default function useCode(onListenerChangePage) {
   const { quizGuid } = useParams();
   const { gameCode, setGameCode, currentQuiz, setCurrentQuiz } = useAppContext();
 
@@ -36,6 +36,7 @@ export default function useCode() {
       createGame(code, currentQuiz);
       getUsersInGame(code, onChangeUsers);
       setGameCode(code);
+      onListenerChangePage(code);
     }
   }, [currentQuiz]);
 
