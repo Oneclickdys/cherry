@@ -1,0 +1,20 @@
+$host-statement-progress-height: 20px;
+
+.host-statement__wrapper {
+  @extend .centered-page;
+}
+
+.host-statement__title {
+  @extend .title-h2;
+
+  margin-bottom: $separator-xl;
+}
+
+.host-statement__progress {
+  width: 70%;
+
+  .MuiLinearProgress-root {
+    height: $host-statement-progress-height;
+    border-radius: $border-radius-01;
+  }
+}
