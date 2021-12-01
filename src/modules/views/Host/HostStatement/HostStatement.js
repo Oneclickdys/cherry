@@ -2,8 +2,8 @@ import React from 'react';
 import ProgressBar from '../../../atoms/ProgressBar/ProgressBar';
 import useHostStatement from './useHostStatement';
 
-function HostStatement() {
-  const { statement, progress } = useHostStatement();
+function HostStatement({ currentPage }) {
+  const { statement, progress } = useHostStatement(currentPage);
 
   return (
     <div className="host-statement">

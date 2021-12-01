@@ -47,7 +47,6 @@ export const Router = () => {
   }
 
   function onChangePageHost(page) {
-    console.log(page, 'pagepagepagepage');
     setCurrentPage(page);
   }
 
@@ -68,7 +67,7 @@ export const Router = () => {
       <Route exact path="/waiting-countdown" element={<GuestCountdown />} />
       <Route exact path="/countdown" element={<HostCountdown />} />
       {/* <Route exact path="/statement" element={<ShowStatement />} /> */}
-      <Route exact path="/statement" element={<HostStatement />} />
+      <Route exact path="/statement" element={<HostStatement currentPage={currentPage} />} />
       <Route exact path="/waiting-statement" element={<GuestStatement currentPage={currentPage} />} />
       <Route exact path="/question" element={<HostQuestion currentPage={currentPage} />} />
       <Route exact path="/question-options" element={<GuestQuestion currentPage={currentPage} />} />

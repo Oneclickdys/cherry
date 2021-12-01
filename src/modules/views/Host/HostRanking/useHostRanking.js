@@ -7,9 +7,8 @@ export default function useHostRanking(currentPage) {
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
 
-  function onNext() {
+  async function onNext() {
     let nextPage = PAGES.statement;
-    debugger;
     let nextIndex = parseInt(currentPage.indexQuestion + 1);
 
     console.log(currentQuiz, currentPage, 'currentQuizcurrentQuizcurrentQuiz');
@@ -17,8 +16,7 @@ export default function useHostRanking(currentPage) {
       nextPage = PAGES.podium;
       nextIndex = 0;
     }
-    debugger;
-    putCurrentPage(gameCode, nextPage, nextIndex ? currentQuiz.questions[nextIndex] : {}, nextIndex);
+    await putCurrentPage(gameCode, nextPage, nextIndex ? currentQuiz.questions[nextIndex] : {}, nextIndex);
     navigate(`/${nextPage}`);
   }
 

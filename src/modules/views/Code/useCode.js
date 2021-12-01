@@ -21,8 +21,8 @@ export default function useCode(onListenerChangePage) {
     setUsers(newUsers);
   }
 
-  function onStartGame() {
-    putCurrentPage(gameCode, PAGES.countdown);
+  async function onStartGame() {
+    await putCurrentPage(gameCode, PAGES.countdown);
     navigate('/countdown');
   }
 

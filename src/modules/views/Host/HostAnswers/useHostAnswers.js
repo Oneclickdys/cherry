@@ -7,9 +7,9 @@ export default function useHostAnswers(currentPage) {
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
 
-  function onNext() {
+  async function onNext() {
     console.log(currentPage.indexQuestion, 'currentPage.indexQuestion');
-    putCurrentPage(gameCode, PAGES.ranking, currentQuiz.questions[currentPage.indexQuestion], currentPage.indexQuestion);
+    await putCurrentPage(gameCode, PAGES.ranking, currentQuiz.questions[currentPage.indexQuestion], currentPage.indexQuestion);
     navigate('/ranking');
   }
 

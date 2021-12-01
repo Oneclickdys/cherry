@@ -16,8 +16,8 @@ export default function useHostCountdown() {
     if (countdown <= 0 && currentQuiz.guid) finishCountdown();
   }, [countdown]);
 
-  function finishCountdown() {
-    putCurrentPage(gameCode, PAGES.statement, currentQuiz.questions[0], 0);
+  async function finishCountdown() {
+    await putCurrentPage(gameCode, PAGES.statement, currentQuiz.questions[0], 0);
     navigate('/statement');
   }
 
