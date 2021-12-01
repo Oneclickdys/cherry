@@ -9,7 +9,7 @@ export default function useHostCountdown() {
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
 
-  const { countdown } = useCountdown(10);
+  const { countdown } = useCountdown(5);
 
   useEffect(() => {
     console.log('countdown: ', countdown);
