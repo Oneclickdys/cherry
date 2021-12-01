@@ -1,16 +1,16 @@
 import React from 'react';
 import Button from '../../../atoms/Button/Button';
-import useHostQuestion from './useHostQuestion';
+import useHostAnswers from './useHostAnswers';
 
-function HostQuestion() {
-  const { onNext } = useHostQuestion();
+function HostAnswers() {
+  const { onNext } = useHostAnswers();
 
   return (
     <div>
-      hostQuestion
+      hostAnswers
       <Button onClick={onNext}>Continuar</Button>
     </div>
   );
 }
 
-export default HostQuestion;
+export default HostAnswers;
