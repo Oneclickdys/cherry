@@ -4,8 +4,12 @@ export const USER_TYPES = {
 };
 
 export const PAGES = {
+  home: 'home',
   waitingGame: 'waiting-game',
   countdown: 'countdown',
   statement: 'statement',
   question: 'question',
+  answers: 'answers',
+  ranking: 'ranking',
+  podium: 'podium',
 };
