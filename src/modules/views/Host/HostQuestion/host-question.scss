@@ -1,0 +1,11 @@
+.host-question {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.host-question__header {
+
+}
+.host-question__body {
+  flex-grow: 1;
+}

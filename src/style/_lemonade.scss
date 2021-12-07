@@ -1,0 +1,20 @@
+.cherry.lemonade-exercises {
+  height: 100%;
+
+  .lemo-multiple-choice-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .lemo-stimulus {
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .lemo-question-body {
+    margin-bottom: 1em;
+    font-size: 1.6em;
+  }
+}

@@ -1,0 +1,10 @@
+@import "src/style/colors";
+
+.block-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .6em;
+  background-color: $color-gray-01;
+}
