@@ -1,0 +1,17 @@
+@import "src/style/colors";
+
+.question-time-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  background-color: $color-gray-02;
+}
+
+.question-time-out__counter {
+  color: #fff;
+  font-size: 2em;
+}

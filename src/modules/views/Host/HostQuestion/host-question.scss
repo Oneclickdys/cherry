@@ -1,11 +1,18 @@
 .host-question {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 .host-question__header {
 
 }
 .host-question__body {
+  position: relative;
   flex-grow: 1;
+}
+
+.timer-wrapper {
+  position: absolute;
+  right: 20px;
+  top: 160px;
 }
