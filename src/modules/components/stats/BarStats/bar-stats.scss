@@ -1,0 +1,37 @@
+$bar-stats-bar-separator: 10px;
+$bar-stats-bar-fixed-height: 20px;
+$bar-stats-bar-fixed-color: #fff;
+$bar-stats-bar-background: $color-gray-01;
+
+.bar-stats {
+  display: flex;
+  align-items: baseline;
+  height: 100%;
+}
+
+.bar-stats__bar {
+  flex: 1 1 auto;
+  margin-right: $bar-stats-bar-separator;
+
+  position: relative;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.bar-stats__bar-progress {
+  background-color: $bar-stats-bar-background;
+  margin-bottom: 2px;
+}
+
+.bar-stats__bar-fixed {
+  color: $bar-stats-bar-fixed-color;
+  background-color: $bar-stats-bar-background;
+  height: $bar-stats-bar-fixed-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
