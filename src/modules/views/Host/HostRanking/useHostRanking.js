@@ -12,7 +12,7 @@ export default function useHostRanking(currentPage) {
     let nextIndex = parseInt(currentPage.indexQuestion + 1);
 
     console.log(currentQuiz, currentPage, 'currentQuizcurrentQuizcurrentQuiz');
-    if (currentQuiz.questions.length < currentPage.indexQuestion) {
+    if (currentQuiz.questions.length <= nextIndex) {
       nextPage = PAGES.podium;
       nextIndex = 0;
     }
