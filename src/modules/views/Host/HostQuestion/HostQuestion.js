@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { useLemonadeQuestion, observer } from 'react-lemonade-editor';
-import Button from '../../../atoms/Button/Button';
-import useHostQuestion from './useHostQuestion';
+import { observer, useLemonadeQuestion } from 'react-lemonade-editor';
 import BlockBar from '../../../atoms/BlockBar/BlockBar';
 import Button from '../../../atoms/Button/Button';
 import QuestionCounter from '../../../atoms/QuestionCounter/QuestionCounter';
@@ -10,17 +8,18 @@ import addQuestionStyle from './util/addQuestionStyle';
 import QuestionTimeOut from '../../../atoms/QuestionTimeOut/QuestionTimeOut';
 // import getTestData from './util/testData';
 
+// const questionData = addQuestionStyle(getTestData().currentQuestion);
+
 function HostQuestion({ currentPage }) {
   const { onNext } = useHostQuestion(currentPage);
-  // const questionData = addQuestionStyle(getTestData().currentQuestion);
   const questionData = addQuestionStyle(currentPage.currentQuestion);
   const {
     exercise: { Question, store },
   } = useLemonadeQuestion({ data: questionData });
 
   const onComplete = useCallback(() => {
-    onNext()
-  }, [onNext])
+    onNext();
+  }, [onNext]);
 
   useEffect(() => {
     window.store = store;
@@ -41,7 +40,7 @@ function HostQuestion({ currentPage }) {
           <QuestionTimeOut onComplete={onComplete} totalTime={5} />
         </div>
         <div className='cherry lemonade-exercises'>
-          <Question disabled={true}/>
+          <Question disabled={true} />
         </div>
       </div>
     </div>
