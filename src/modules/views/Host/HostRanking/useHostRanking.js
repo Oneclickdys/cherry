@@ -1,11 +1,18 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useAppContext } from '../../../../context/AppContext';
-import { putCurrentPage } from '../../../../server/firebase';
+import { getGameUsers, putCurrentPage } from '../../../../server/firebase';
 import { PAGES } from '../../../../utils/constants';
 
 export default function useHostRanking(currentPage) {
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   async function onNext() {
     let nextPage = PAGES.statement;
@@ -20,5 +27,11 @@ export default function useHostRanking(currentPage) {
     navigate(`/${nextPage}`);
   }
 
-  return { onNext };
+  async function getUsers() {
+    const response = await getGameUsers(gameCode);
+    console.log('users: ', response);
+    setUsers(response);
+  }
+
+  return { users, onNext };
 }

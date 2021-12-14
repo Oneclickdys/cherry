@@ -64,6 +64,7 @@ export async function joinGame(code, name) {
 
   await setDoc(doc(db, 'game', code, 'users', new Date().getTime().toString()), {
     name,
+    score: 0,
   });
 }
 
@@ -138,4 +139,17 @@ export async function getOnceCurrentPage(code, subscription) {
   }
   console.log(currentPage, 'currentPagecurrentPagecurrentPagecurrentPage');
   return currentPage;
+}
+
+export async function getGameUsers(code) {
+  const db = getFirestore();
+  const q = query(collection(db, 'game', code, 'users'));
+
+  let users = [];
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    users.push(doc.data());
+  });
+
+  return users;
 }
