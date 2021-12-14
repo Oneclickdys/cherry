@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import Button from '../../../atoms/Button/Button';
-import useHostQuestion from './useHostQuestion';
-import { useLemonadeQuestion, observer } from 'react-lemonade-editor';
+import { observer, useLemonadeQuestion } from 'react-lemonade-editor';
 import BlockBar from '../../../atoms/BlockBar/BlockBar';
+import Button from '../../../atoms/Button/Button';
 import QuestionCounter from '../../../atoms/QuestionCounter/QuestionCounter';
+import useHostQuestion from './useHostQuestion';
 import addQuestionStyle from './util/addQuestionStyle';
 
 function HostQuestion({ currentPage }) {
@@ -18,8 +18,8 @@ function HostQuestion({ currentPage }) {
   }, []);
 
   return (
-    <div className='host-question'>
-      <div className='host-question__header'>
+    <div className="host-question">
+      <div className="host-question__header">
         <BlockBar>
           <React.Fragment>
             <QuestionCounter currentQuestion={1} totalQuestions={10} />
@@ -27,8 +27,8 @@ function HostQuestion({ currentPage }) {
           </React.Fragment>
         </BlockBar>
       </div>
-      <div className='host-question__body'>
-        <div className='cherry lemonade-exercises'>
+      <div className="host-question__body">
+        <div className="cherry lemonade-exercises">
           <Question />
         </div>
       </div>
