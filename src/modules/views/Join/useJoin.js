@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useAppContext } from '../../../context/AppContext';
-import { getGame, joinGame } from '../../../server/firebase';
+import { getGame, getQuiz, joinGame } from '../../../server/firebase';
 
 export default function useJoin(join) {
   const [game, setGame] = useState('');
   const [currentCode, setCurrentCode] = useState('');
-  const { setGameCode } = useAppContext();
+  const { setGameCode, setCurrentQuiz } = useAppContext();
 
   async function onCheckGame(data) {
     const game = await getGame(data);
@@ -16,6 +16,9 @@ export default function useJoin(join) {
   async function onJoin(name) {
     try {
       await joinGame(currentCode, name);
+      const game = await getGame(currentCode);
+      const quizz = await getQuiz(game.quiz.guid);
+      setCurrentQuiz(quizz);
       setGameCode(currentCode);
       setGame({ ...game, status: 'joined' });
       join(currentCode);
