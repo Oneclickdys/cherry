@@ -29,7 +29,6 @@ export default function useHostRanking(currentPage) {
 
   async function getUsers() {
     const response = await getGameUsers(gameCode);
-    console.log('users: ', response);
     setUsers(response);
   }
 

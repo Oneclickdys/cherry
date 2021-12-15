@@ -46,19 +46,6 @@ export async function createGame(code, quiz) {
   });
 }
 
-export async function getGame(code) {
-  const db = getFirestore();
-  let game = null;
-
-  const docRef = doc(db, 'game', code);
-  const docSnap = await getDoc(docRef);
-  console.log(docSnap, 'docSnap');
-  if (docSnap.exists()) {
-    game = docSnap.data();
-  }
-  return game;
-}
-
 export async function joinGame(code, name) {
   const db = getFirestore();
 
@@ -116,6 +103,18 @@ export async function getQuiz(guid) {
     quiz = docSnap.data();
   }
   return quiz;
+}
+
+export async function getGame(code) {
+  const db = getFirestore();
+  let game = null;
+
+  const docRef = doc(db, 'game', code);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    game = docSnap.data();
+  }
+  return game;
 }
 
 // subscribirte a la pagina actual

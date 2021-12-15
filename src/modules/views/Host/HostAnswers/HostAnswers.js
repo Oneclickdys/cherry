@@ -16,14 +16,7 @@ function HostAnswers({ currentPage }) {
       <div className="host-answers__wrapper">
         <div className="host-answers__title">Estadísticas</div>
         <div className="host-answers__bars">
-          <BarStats
-            agroupAnswers={[
-              { name: 'a', count: 20 },
-              { name: 'b', count: 60, correct: true },
-              { name: 'c', count: 10 },
-              { name: 'd', count: 5 },
-            ]}
-          />
+          <BarStats agroupAnswers={[{ count: 20 }, { count: 60, correct: true }, { count: 10 }, { count: 5 }]} />
         </div>
         <div className="host-answers__next">
           <Button onClick={onNext}>Continuar</Button>

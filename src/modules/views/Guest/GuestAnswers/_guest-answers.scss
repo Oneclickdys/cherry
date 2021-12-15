@@ -1,1 +1,17 @@
-.none {}
+.guest-answers {
+  svg {
+    height: 180px;
+    width: 180px;
+  }
+}
+
+.guest-answers__text {
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+.guest-answers__content {
+  @extend .centered;
+
+  height: calc(100vh - 40px);
+}

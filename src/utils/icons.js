@@ -1,6 +1,7 @@
 import { ReactComponent as Back } from '../assets/icons/arrow-back.svg';
 import { ReactComponent as CheckCheckedRoundFill } from '../assets/icons/check-checked-round-fill.svg';
 import { ReactComponent as Close } from '../assets/icons/close.svg';
+import { ReactComponent as Timer } from '../assets/icons/timer.svg';
 
 export default {
   getIcon: (icon) => {
@@ -16,6 +17,10 @@ export default {
 
       case 'close':
         componentIcon = Close;
+        break;
+
+      case 'timer':
+        componentIcon = Timer;
         break;
 
       default:
