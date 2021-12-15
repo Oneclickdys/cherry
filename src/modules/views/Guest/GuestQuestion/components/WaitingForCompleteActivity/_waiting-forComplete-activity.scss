@@ -1,0 +1,15 @@
+@import "../../../../../../style/index";
+
+.waiting-forComplete-activity {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.waiting-forComplete-activity__title {
+  @extend .title-h2;
+
+  margin-top: $separator-xl;
+}

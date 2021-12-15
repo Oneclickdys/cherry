@@ -1,0 +1,17 @@
+.guest-question .lemonade-exercises {
+  .lemo-question-header {
+    display: none;
+  }
+  .lemo-question-body {
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+  .lemo-option {
+    //height: 50%;
+  }
+  .lemo-option-content-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

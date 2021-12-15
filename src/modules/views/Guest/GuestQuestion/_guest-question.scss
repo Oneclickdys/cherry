@@ -1,0 +1,10 @@
+.guest-question {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.guest-question__body {
+  position: relative;
+  flex-grow: 1;
+}
