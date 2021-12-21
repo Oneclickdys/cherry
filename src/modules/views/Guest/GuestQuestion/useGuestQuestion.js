@@ -37,8 +37,7 @@ export default function useGuestQuestion({ currentPage }) {
     };
 
     console.log('ANSWER PAYLOAD: ', payload);
-    const response = await addAnswer(gameCode, payload);
-    console.log('response add answer: ', response);
+    await addAnswer(gameCode, payload);
   }
 
   useEffect(() => {
