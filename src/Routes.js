@@ -18,14 +18,14 @@ import HostQuestion from './modules/views/Host/HostQuestion/HostQuestion';
 import HostRanking from './modules/views/Host/HostRanking/HostRanking';
 import HostStatement from './modules/views/Host/HostStatement/HostStatement';
 import Join from './modules/views/Join/Join';
-import { getCurrentPage } from './server/firebase';
+import { getCurrentPage, getCurrentUser } from './server/firebase';
 import { PAGES } from './utils/constants';
 
 export const Router = () => {
   let navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(null);
 
-  const { gameCode, currentQuiz } = useAppContext();
+  const { gameCode, currentQuiz, setUser } = useAppContext();
 
   function onChangePageGuest(page) {
     setCurrentPage(page);
@@ -50,8 +50,14 @@ export const Router = () => {
     setCurrentPage(page);
   }
 
-  function join(code) {
+  function onChangeUser(user) {
+    console.log('ha cambiado el user', user);
+    setUser(user);
+  }
+
+  function join(code, userId) {
     getCurrentPage(code, onChangePageGuest);
+    getCurrentUser(code, userId, onChangeUser);
   }
 
   function onListenerChangePage(code) {

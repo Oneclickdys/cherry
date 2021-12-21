@@ -52,6 +52,7 @@ export async function joinGame(code, name) {
   await setDoc(doc(db, 'game', code, 'users', userId), {
     name,
     score: 0,
+    id: userId,
   });
   return userId;
 }
@@ -127,13 +128,19 @@ export async function getCurrentPage(code, subscription) {
   });
 }
 
+// subscribirte a tu usuario actual
+export async function getCurrentUser(code, idUser, subscription) {
+  const db = getFirestore();
+  const unsub = onSnapshot(doc(db, 'game', code, 'users', idUser), (doc) => {
+    subscription(doc.data());
+  });
+}
+
 export async function getOnceCurrentPage(code, subscription) {
   const db = getFirestore();
   let currentPage = null;
-  console.log(code, 'codecodecodecode');
   const docRef = doc(db, 'game', code, 'currentPage', 'currentPageId');
   const docSnap = await getDoc(docRef);
-  console.log(docSnap, 'docSnap');
   if (docSnap.exists()) {
     currentPage = docSnap.data();
   }
