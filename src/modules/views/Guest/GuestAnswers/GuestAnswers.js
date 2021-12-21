@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../../../atoms/Icon/Icon';
+import GuestFooter from '../../../components/GuestFooter/GuestFooter';
 import HostHeader from '../../../components/HostHeader/HostHeader';
 import useGuestAnswers from './useGuestAnswers';
 
@@ -24,6 +25,7 @@ const GuestAnswers = ({ currentPage }) => {
         <Icon type={iconStatus[answerStatus]} />
         <span className="guest-answers__text">{textStatus[answerStatus]}</span>
       </div>
+      <GuestFooter />
     </div>
   );
 };

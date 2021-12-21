@@ -1,17 +1,22 @@
 .guest-answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
   svg {
     height: 180px;
     width: 180px;
   }
 }
 
+.guest-answers__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .guest-answers__text {
   font-size: 30px;
   margin-top: 40px;
-}
-
-.guest-answers__content {
-  @extend .centered;
-
-  height: calc(100vh - 40px);
 }
