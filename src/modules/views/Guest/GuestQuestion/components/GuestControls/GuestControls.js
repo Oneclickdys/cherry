@@ -4,11 +4,11 @@ import useGuestControls from './useGuestControls';
 import './_guest-controls.scss';
 
 function GuestControls({ currentPage, onResponse }) {
-  const { handleChange, Question } = useGuestControls({ currentPage, onResponse, devMode: true });
+  const { handleChange, Question } = useGuestControls({ currentPage, onResponse });
 
   return (
-    <div className='guest-question__body'>
-      <div className='cherry lemonade-exercises'>
+    <div className="guest-question__body">
+      <div className="cherry lemonade-exercises">
         <Question changed={handleChange} />
       </div>
     </div>

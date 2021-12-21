@@ -7,7 +7,7 @@ import QuestionTimeOut from '../../../atoms/QuestionTimeOut/QuestionTimeOut';
 import useHostQuestion from './useHostQuestion';
 
 function HostQuestion({ currentPage }) {
-  const { onComplete, Question } = useHostQuestion(currentPage, true);
+  const { onComplete, Question } = useHostQuestion(currentPage);
 
   return (
     <div className="host-question">
