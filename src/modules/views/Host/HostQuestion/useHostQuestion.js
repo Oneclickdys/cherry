@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router';
 import { useAppContext } from '../../../../context/AppContext';
 import { putCurrentPage } from '../../../../server/firebase';
 import addQuestionStyle from '../../../../utils/addQuestionStyle';
+import { DEVMODE } from '../../../../utils/config';
 import { PAGES } from '../../../../utils/constants';
 import getTestData from './util/testData';
 
-export default function useHostQuestion(currentPage, devMode) {
+export default function useHostQuestion(currentPage) {
+  const devMode = DEVMODE;
+
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
 
