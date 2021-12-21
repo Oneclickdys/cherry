@@ -152,3 +152,13 @@ export async function getGameUsers(code) {
 
   return users;
 }
+
+export async function addAnswer(code, answer) {
+  const db = getFirestore();
+
+  await setDoc(doc(db, 'game', code, 'answers', new Date().getTime().toString() + '-' + getRandom()), answer);
+}
+
+function getRandom(max = 999999, min = 0) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
