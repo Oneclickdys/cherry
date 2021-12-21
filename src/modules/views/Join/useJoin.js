@@ -16,13 +16,12 @@ export default function useJoin(join) {
   async function onJoin(name) {
     try {
       const userId = await joinGame(currentCode, name);
-      setUserId(userId);
       const game = await getGame(currentCode);
       const quizz = await getQuiz(game.quiz.guid);
       setCurrentQuiz(quizz);
       setGameCode(currentCode);
       setGame({ ...game, status: 'joined' });
-      join(currentCode);
+      join(currentCode, userId);
     } catch (e) {
       console.log('error', e);
     }
