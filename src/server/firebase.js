@@ -47,12 +47,13 @@ export async function createGame(code, quiz) {
 }
 
 export async function joinGame(code, name) {
+  const userId = getIdRandom();
   const db = getFirestore();
-
-  await setDoc(doc(db, 'game', code, 'users', new Date().getTime().toString()), {
+  await setDoc(doc(db, 'game', code, 'users', userId), {
     name,
     score: 0,
   });
+  return userId;
 }
 
 // subscribirte a los jugadores
@@ -156,7 +157,11 @@ export async function getGameUsers(code) {
 export async function addAnswer(code, answer) {
   const db = getFirestore();
 
-  await setDoc(doc(db, 'game', code, 'answers', new Date().getTime().toString() + '-' + getRandom()), answer);
+  await setDoc(doc(db, 'game', code, 'answers', getIdRandom()), answer);
+}
+
+function getIdRandom() {
+  return new Date().getTime().toString() + '-' + getRandom();
 }
 
 function getRandom(max = 999999, min = 0) {

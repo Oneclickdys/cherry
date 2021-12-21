@@ -5,7 +5,7 @@ import { getGame, getQuiz, joinGame } from '../../../server/firebase';
 export default function useJoin(join) {
   const [game, setGame] = useState('');
   const [currentCode, setCurrentCode] = useState('');
-  const { setGameCode, setCurrentQuiz } = useAppContext();
+  const { setGameCode, setCurrentQuiz, setUserId } = useAppContext();
 
   async function onCheckGame(data) {
     const game = await getGame(data);
@@ -15,7 +15,8 @@ export default function useJoin(join) {
 
   async function onJoin(name) {
     try {
-      await joinGame(currentCode, name);
+      const userId = await joinGame(currentCode, name);
+      setUserId(userId);
       const game = await getGame(currentCode);
       const quizz = await getQuiz(game.quiz.guid);
       setCurrentQuiz(quizz);
