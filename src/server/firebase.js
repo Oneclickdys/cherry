@@ -160,6 +160,12 @@ export async function addAnswer(code, answer) {
   await setDoc(doc(db, 'game', code, 'answers', getIdRandom()), answer);
 }
 
+export async function updateTotalUserScore(code, userId, userName, totalScore) {
+  const db = getFirestore();
+
+  await setDoc(doc(db, 'game', code, 'users', userId), { name: userName, score: totalScore });
+}
+
 function getIdRandom() {
   return new Date().getTime().toString() + '-' + getRandom();
 }
