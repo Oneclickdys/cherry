@@ -171,7 +171,8 @@ export async function getUserAnswerForActualQuestion(code, questionId) {
     answers.push(doc.data());
   });
 
-  console.log('answers: ', answers);
+  answers = answers.filter((answer) => answer.questionId === questionId);
+
   return answers;
 }
 

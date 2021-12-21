@@ -6,7 +6,7 @@ import useHostAnswers from './useHostAnswers';
 
 function HostAnswers({ currentPage }) {
   console.log(currentPage, 'currentPage');
-  const { currentQuiz, onNext } = useHostAnswers(currentPage);
+  const { currentQuiz, onNext } = useHostAnswers({ currentPage });
 
   return (
     <div className="host-answers">
