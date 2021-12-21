@@ -154,6 +154,20 @@ export async function getGameUsers(code) {
   return users;
 }
 
+export async function getUserAnswerForActualQuestion(code, questionId) {
+  const db = getFirestore();
+  const q = query(collection(db, 'game', code, 'answers'));
+
+  let answers = [];
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    answers.push(doc.data());
+  });
+
+  console.log('answers: ', answers);
+  return answers;
+}
+
 export async function addAnswer(code, answer) {
   const db = getFirestore();
 
