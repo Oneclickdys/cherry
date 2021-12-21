@@ -13,5 +13,5 @@ export default function useHostAnswers(currentPage) {
     navigate('/ranking');
   }
 
-  return { onNext };
+  return { currentQuiz, onNext };
 }

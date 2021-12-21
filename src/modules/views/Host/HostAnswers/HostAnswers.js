@@ -6,12 +6,12 @@ import useHostAnswers from './useHostAnswers';
 
 function HostAnswers({ currentPage }) {
   console.log(currentPage, 'currentPage');
-  const { onNext } = useHostAnswers(currentPage);
+  const { currentQuiz, onNext } = useHostAnswers(currentPage);
 
   return (
     <div className="host-answers">
       <div className="host-question__header">
-        <HostHeader />
+        <HostHeader currentQuestion={currentPage.indexQuestion + 1} totalQuestions={currentQuiz.questions.length} />
       </div>
       <div className="host-answers__wrapper">
         <div className="host-answers__title">Estadísticas</div>

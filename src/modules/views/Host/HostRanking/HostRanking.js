@@ -5,12 +5,12 @@ import HostHeader from '../../../components/HostHeader/HostHeader';
 import useHostRanking from './useHostRanking';
 
 const HostRanking = ({ currentPage }) => {
-  const { users, onNext } = useHostRanking(currentPage);
+  const { currentQuiz, users, onNext } = useHostRanking(currentPage);
 
   return (
     <div className="host-ranking">
       <div className="host-question__header">
-        <HostHeader />
+        <HostHeader currentQuestion={currentPage.indexQuestion + 1} totalQuestions={currentQuiz.questions.length} />
       </div>
       <div className="host-ranking__wrapper">
         <div className="host-ranking__title">Ranking</div>

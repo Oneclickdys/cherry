@@ -1,21 +1,21 @@
 import React from 'react';
 import { observer } from 'react-lemonade-editor';
 import BlockBar from '../../../atoms/BlockBar/BlockBar';
-import Button from '../../../atoms/Button/Button';
-import QuestionCounter from '../../../atoms/QuestionCounter/QuestionCounter';
 import QuestionTimeOut from '../../../atoms/QuestionTimeOut/QuestionTimeOut';
+import HostHeader from '../../../components/HostHeader/HostHeader';
 import useHostQuestion from './useHostQuestion';
 
 function HostQuestion({ currentPage }) {
-  const { onComplete, Question } = useHostQuestion(currentPage, true);
+  const { currentQuiz, onComplete, Question } = useHostQuestion(currentPage, true);
 
   return (
     <div className="host-question">
       <div className="host-question__header">
         <BlockBar>
           <React.Fragment>
-            <QuestionCounter currentQuestion={1} totalQuestions={10} />
-            <Button onClick={onComplete}>Continuar</Button>
+            {/*<QuestionCounter currentQuestion={1} totalQuestions={10} />
+            <Button onClick={onComplete}>Continuar</Button>*/}
+            <HostHeader currentQuestion={currentPage.indexQuestion + 1} totalQuestions={currentQuiz.questions.length} />
           </React.Fragment>
         </BlockBar>
       </div>

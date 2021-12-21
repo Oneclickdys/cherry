@@ -1,11 +1,11 @@
+import { useCallback } from 'react';
+import { useLemonadeQuestion } from 'react-lemonade-editor';
 import { useNavigate } from 'react-router';
-import { PAGES } from '../../../../utils/constants';
 import { useAppContext } from '../../../../context/AppContext';
 import { putCurrentPage } from '../../../../server/firebase';
-import getTestData from './util/testData';
 import addQuestionStyle from '../../../../utils/addQuestionStyle';
-import { useLemonadeQuestion } from 'react-lemonade-editor';
-import { useCallback } from 'react';
+import { PAGES } from '../../../../utils/constants';
+import getTestData from './util/testData';
 
 export default function useHostQuestion(currentPage, devMode) {
   const navigate = useNavigate();
@@ -31,5 +31,5 @@ export default function useHostQuestion(currentPage, devMode) {
     onNext();
   }, [onNext]);
 
-  return { onComplete, Question: exercise.Question };
+  return { currentQuiz, onComplete, Question: exercise.Question };
 }

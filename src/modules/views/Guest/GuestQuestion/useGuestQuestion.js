@@ -3,7 +3,7 @@ import { useAppContext } from '../../../../context/AppContext';
 import { addAnswer } from '../../../../server/firebase';
 
 export default function useGuestQuestion({ currentPage }) {
-  const { gameCode } = useAppContext();
+  const { gameCode, userId } = useAppContext();
   const [isAnswered, setIsAnswered] = useState(false);
   const timer = useRef();
   console.log('currentPage: ', currentPage);
@@ -29,7 +29,7 @@ export default function useGuestQuestion({ currentPage }) {
 
     const payload = {
       questionId,
-      userId: '1',
+      userId: userId,
       userResponseId: userResponse,
       score,
       time: time / 1000,

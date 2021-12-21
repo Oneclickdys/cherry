@@ -32,5 +32,5 @@ export default function useHostRanking(currentPage) {
     setUsers(response);
   }
 
-  return { users, onNext };
+  return { currentQuiz, users, onNext };
 }
