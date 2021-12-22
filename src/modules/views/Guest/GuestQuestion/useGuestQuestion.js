@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAppContext } from '../../../../context/AppContext';
-import { addAnswer } from '../../../../server/firebase';
+import { addAnswer, updateTotalUserScore } from '../../../../server/firebase';
 
 export default function useGuestQuestion({ currentPage }) {
-  const { gameCode, user } = useAppContext();
+  const { gameCode, user, currentQuiz, setLastPlayerResponse } = useAppContext();
   const [isAnswered, setIsAnswered] = useState(false);
   const timer = useRef();
-  console.log('currentPage: ', currentPage);
+  console.log('user: ', user);
 
   const handleResponse = useCallback(
     (userResponse) => {
@@ -37,7 +37,9 @@ export default function useGuestQuestion({ currentPage }) {
     };
 
     console.log('ANSWER PAYLOAD: ', payload);
+    setLastPlayerResponse(payload);
     await addAnswer(gameCode, payload);
+    await updateTotalUserScore(gameCode, user.id, user.name, user.score + score);
   }
 
   useEffect(() => {
@@ -45,6 +47,7 @@ export default function useGuestQuestion({ currentPage }) {
   }, []);
 
   return {
+    currentQuiz,
     isAnswered,
     handleResponse,
   };

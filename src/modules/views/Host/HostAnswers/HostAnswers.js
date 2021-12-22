@@ -6,8 +6,7 @@ import useHostAnswers from './useHostAnswers';
 
 function HostAnswers({ currentPage }) {
   console.log(currentPage, 'currentPage');
-  const { currentQuiz, onNext } = useHostAnswers({ currentPage });
-
+  const { currentQuiz, groupedAnswers, onNext } = useHostAnswers({ currentPage });
   return (
     <div className="host-answers">
       <div className="host-question__header">
@@ -16,7 +15,7 @@ function HostAnswers({ currentPage }) {
       <div className="host-answers__wrapper">
         <div className="host-answers__title">Estadísticas</div>
         <div className="host-answers__bars">
-          <BarStats agroupAnswers={[{ count: 20 }, { count: 60, correct: true }, { count: 10 }, { count: 5 }]} />
+          <BarStats agroupAnswers={groupedAnswers} />
         </div>
         <div className="host-answers__next">
           <Button onClick={onNext}>Continuar</Button>

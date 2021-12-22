@@ -1,5 +1,5 @@
 $bar-stats-bar-separator: 10px;
-$bar-stats-bar-fixed-height: 20px;
+$bar-stats-bar-fixed-height: 30px;
 $bar-stats-bar-fixed-color: #fff;
 $bar-stats-bar-background: $color-gray-01;
 
@@ -30,6 +30,7 @@ $bar-stats-bar-background: $color-gray-01;
   color: $bar-stats-bar-fixed-color;
   background-color: $bar-stats-bar-background;
   height: $bar-stats-bar-fixed-height;
+  padding: $bar-stats-bar-separator;
 
   display: flex;
   align-items: center;

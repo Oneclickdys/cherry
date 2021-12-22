@@ -29,7 +29,11 @@ export default function useHostRanking(currentPage) {
 
   async function getUsers() {
     const response = await getGameUsers(gameCode);
-    setUsers(response);
+    setUsers(
+      response.sort((a, b) => {
+        return b.score - a.score;
+      })
+    );
   }
 
   return { currentQuiz, users, onNext };

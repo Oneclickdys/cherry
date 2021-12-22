@@ -21,7 +21,7 @@ const Join = ({ join }) => {
             <JoinForm onSubmit={onCheckGame} title="Usa el código para unirte a una partida" placeholder="Código de la partida" buttonText="Ingresar" />
           )}
           {game && !game.status && <JoinForm onSubmit={onJoin} title="Introduce tu nombre" placeholder="Nombre" buttonText="Unirme" />}
-          {game && game.status === 'joined' && <span>¡Te has unido! Esperando a que el anfitrión lanze el juego.</span>}
+          {game && game.status === 'joined' && <span>¡Te has unido! Esperando a que el anfitrión lance el juego.</span>}
         </div>
       </div>
     </LayoutDefault>

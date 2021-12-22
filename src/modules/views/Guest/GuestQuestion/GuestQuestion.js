@@ -7,14 +7,14 @@ import WaitingForCompleteActivity from './components/WaitingForCompleteActivity/
 import useGuestQuestion from './useGuestQuestion';
 
 function GuestQuestion({ currentPage }) {
-  const { isAnswered, handleResponse } = useGuestQuestion({ currentPage });
+  const { currentQuiz, isAnswered, handleResponse } = useGuestQuestion({ currentPage });
 
   return (
     <div className="guest-question">
       <div className="guest-question__header">
         <BlockBar>
           <React.Fragment>
-            <QuestionCounter currentQuestion={1} totalQuestions={10} />
+            <QuestionCounter currentQuestion={currentPage.indexQuestion + 1} totalQuestions={currentQuiz.questions.length} />
           </React.Fragment>
         </BlockBar>
       </div>

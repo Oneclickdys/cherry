@@ -185,7 +185,7 @@ export async function addAnswer(code, answer) {
 export async function updateTotalUserScore(code, userId, userName, totalScore) {
   const db = getFirestore();
 
-  await setDoc(doc(db, 'game', code, 'users', userId), { name: userName, score: totalScore });
+  await setDoc(doc(db, 'game', code, 'users', userId), { name: userName, score: totalScore, id: userId });
 }
 
 function getIdRandom() {

@@ -13,13 +13,16 @@ export default function useHostPodium() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    //getUsers();
+    getUsers();
   }, []);
 
   async function getUsers() {
     const response = await getGameUsers(gameCode);
-    console.log('users: ', response);
-    setUsers(response);
+    setUsers(
+      response.sort((a, b) => {
+        return b.score - a.score;
+      })
+    );
   }
 
   async function onNext() {

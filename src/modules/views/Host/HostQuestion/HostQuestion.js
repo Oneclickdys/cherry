@@ -21,7 +21,7 @@ function HostQuestion({ currentPage }) {
       </div>
       <div className="host-question__body">
         <div className="timer-wrapper">
-          <QuestionTimeOut onComplete={onComplete} totalTime={10} />
+          <QuestionTimeOut onComplete={onComplete} totalTime={5} />
         </div>
         <div className="cherry lemonade-exercises">
           <Question disabled={true} />

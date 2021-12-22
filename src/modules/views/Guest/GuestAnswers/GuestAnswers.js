@@ -5,7 +5,7 @@ import HostHeader from '../../../components/HostHeader/HostHeader';
 import useGuestAnswers from './useGuestAnswers';
 
 const GuestAnswers = ({ currentPage }) => {
-  const { answerStatus, currentQuiz } = useGuestAnswers(currentPage);
+  const { answerStatus, currentQuiz } = useGuestAnswers({ currentPage });
   const iconStatus = {
     fail: 'close',
     success: 'checked',
@@ -21,10 +21,12 @@ const GuestAnswers = ({ currentPage }) => {
   return (
     <div className="guest-answers">
       <HostHeader currentQuestion={currentPage.indexQuestion + 1} totalQuestions={currentQuiz.questions.length} />
-      <div className="guest-answers__content">
-        <Icon type={iconStatus[answerStatus]} />
-        <span className="guest-answers__text">{textStatus[answerStatus]}</span>
-      </div>
+      {answerStatus && (
+        <div className="guest-answers__content">
+          <Icon type={iconStatus[answerStatus]} />
+          <span className="guest-answers__text">{textStatus[answerStatus]}</span>
+        </div>
+      )}
       <GuestFooter />
     </div>
   );

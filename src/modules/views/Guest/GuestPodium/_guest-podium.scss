@@ -1,0 +1,13 @@
+.guest-podium__wrapper {
+  @extend .centered-page;
+}
+
+.guest-podium__position {
+  @extend .title-h1;
+
+  margin-bottom: $separator-xl;
+}
+
+.guest-podium__score {
+  @extend .title-h2;
+}

@@ -1,0 +1,13 @@
+.guest-ranking__wrapper {
+  @extend .centered-page;
+}
+
+.guest-ranking__position {
+  @extend .title-h1;
+
+  margin-bottom: $separator-xl;
+}
+
+.guest-ranking__score {
+  @extend .title-h2;
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useAppContext } from '../../../../context/AppContext';
-import { getUserAnswerForActualQuestion, putCurrentPage } from '../../../../server/firebase';
+import { getGameUsers, getUserAnswerForActualQuestion, putCurrentPage } from '../../../../server/firebase';
 import { PAGES } from '../../../../utils/constants';
 
 export default function useHostAnswers({ currentPage }) {
@@ -9,15 +9,37 @@ export default function useHostAnswers({ currentPage }) {
   const navigate = useNavigate();
   const { gameCode, currentQuiz } = useAppContext();
 
-  const [answers, setAnswers] = useState([]);
+  const [groupedAnswers, setGroupedAnswers] = useState([]);
 
   useEffect(() => {
-    getAnswers();
-  });
+    calculateBars();
+  }, []);
 
-  async function getAnswers() {
-    const response = await getUserAnswerForActualQuestion(gameCode, currentPage.currentQuestion.reference);
-    console.log('answers resposne: ', response);
+  async function calculateBars() {
+    const question = currentPage.currentQuestion.data;
+    const answers = await getUserAnswerForActualQuestion(gameCode, currentPage.currentQuestion.reference);
+    //console.log('answers: ', answers);
+    const players = await getGameUsers(gameCode);
+    console.log('players: ', players);
+    const validAnswer = question.validation.valid_response.value[0];
+    //console.log('validAnswer: ', validAnswer);
+
+    setGroupedAnswers(
+      question.options.map((option) => {
+        return {
+          count: calculateBarHeight(option.value, answers, players),
+          correct: option.value === validAnswer,
+        };
+      })
+    );
+  }
+
+  function calculateBarHeight(option, answers, players) {
+    console.log('option: ', option);
+    const answerInThisOptions = answers.filter((answer) => answer.userResponseId === option);
+    console.log('answerInThisOptions: ', answerInThisOptions);
+    if (answerInThisOptions.length === 0) return 0;
+    return (answerInThisOptions.length * 100) / players.length;
   }
 
   async function onNext() {
@@ -26,5 +48,5 @@ export default function useHostAnswers({ currentPage }) {
     navigate('/ranking');
   }
 
-  return { currentQuiz, onNext };
+  return { currentQuiz, groupedAnswers, onNext };
 }
