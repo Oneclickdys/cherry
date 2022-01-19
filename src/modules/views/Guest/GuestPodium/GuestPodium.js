@@ -1,15 +1,19 @@
 import React from 'react';
+import GuestFooter from '../../../components/GuestFooter/GuestFooter';
 import useGuestPodium from './useGuestPodium';
 
 const GuestPodium = () => {
-  const { position, score } = useGuestPodium();
+  const { position } = useGuestPodium();
 
   return (
     <div className="guest-podium">
-      <div className="guest-podium__wrapper">
-        <div className="guest-podium__position">{`HAS QUEDADO ${position}º`}</div>
-        <div className="guest-podium__score">{score} Puntos</div>
-      </div>
+      {position && (
+        <div className="guest-podium__wrapper">
+          <div className="guest-podium__position-circle">{`${position}`}</div>
+          <div className="guest-podium__position-text">{`${position}º Lugar`}</div>
+        </div>
+      )}
+      <GuestFooter />
     </div>
   );
 };
