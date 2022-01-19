@@ -6,7 +6,6 @@ export default function useGuestPodium() {
   const { gameCode, user } = useAppContext();
 
   const [position, setPosition] = useState(null);
-  const [score, setScore] = useState(0);
 
   useEffect(() => {
     getUsers();
@@ -17,9 +16,8 @@ export default function useGuestPodium() {
     response = response.sort((a, b) => {
       return b.score - a.score;
     });
-    setScore(user.score);
     setPosition(response.findIndex((item) => item.id === user.id) + 1);
   }
 
-  return { position, score };
+  return { position };
 }
