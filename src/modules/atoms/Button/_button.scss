@@ -1,8 +1,13 @@
-$button-padding-horizontal: $separator-s;
-$button-padding-vertical: $separator-xs;
+$button-padding-horizontal: $separator-l;
+$button-padding-vertical: $separator-m;
 
 .button {
   @extend .hover-basic;
 
+  font-family: 'Lato', sans-serif;
   padding: $button-padding-vertical $button-padding-horizontal;
+  border-color: transparent;
+  background-color: $color-gray-01;
+  border-radius: $border-radius-01;
+  color: $color-black;
 }
