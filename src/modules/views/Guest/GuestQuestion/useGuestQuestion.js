@@ -6,7 +6,7 @@ export default function useGuestQuestion({ currentPage }) {
   const { gameCode, user, currentQuiz, setLastPlayerResponse } = useAppContext();
   const [isAnswered, setIsAnswered] = useState(false);
   const timer = useRef();
-  console.log('user: ', user);
+  // console.log('user: ', user);
 
   const handleResponse = useCallback(
     (userResponse) => {
@@ -16,7 +16,7 @@ export default function useGuestQuestion({ currentPage }) {
       sendAnswer(userResponse[0], responseTime);
       setIsAnswered(true);
     },
-    [setIsAnswered]
+    [setIsAnswered, sendAnswer]
   );
 
   async function sendAnswer(userResponse, time) {
@@ -50,6 +50,7 @@ export default function useGuestQuestion({ currentPage }) {
     currentQuiz,
     isAnswered,
     handleResponse,
+    user
   };
 }
 
