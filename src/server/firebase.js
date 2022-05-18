@@ -47,6 +47,7 @@ export async function createGame(code, quiz) {
 }
 
 export async function joinGame(code, name) {
+  console.log(name);
   const userId = getIdRandom();
   const db = getFirestore();
   await setDoc(doc(db, 'game', code, 'users', userId), {

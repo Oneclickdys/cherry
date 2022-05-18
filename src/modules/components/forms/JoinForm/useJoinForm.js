@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function useJoinForm(onSubmit) {
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState('');
 
   function onChangeCode(newCode) {
     setCode(newCode);

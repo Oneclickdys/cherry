@@ -1,7 +1,9 @@
+@import "./colors";
+
 .cherry.lemonade-exercises {
   height: 100%;
 
-  .lemo-multiple-choice-question {
+  .lemo-multiple-choice-question, .lemo-multiple-choice {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,4 +19,22 @@
     margin-bottom: 1em;
     font-size: 1.6em;
   }
+
+  .lemo-option-content-wrapper {
+    color: white;
+  }
+
+  .lemo-option:nth-child(1) .lemo-option-content-wrapper {
+    background-color: $color-response-01;
+  }
+  .lemo-option:nth-child(2) .lemo-option-content-wrapper {
+    background-color: $color-response-02;
+  }
+  .lemo-option:nth-child(3) .lemo-option-content-wrapper {
+    background-color: $color-response-03;
+  }
+  .lemo-option:nth-child(4) .lemo-option-content-wrapper {
+    background-color: $color-response-04;
+  }
+
 }

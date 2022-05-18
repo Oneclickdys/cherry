@@ -18,7 +18,7 @@ const Join = ({ join }) => {
             </div>
           )}
           {!game && (
-            <JoinForm onSubmit={onCheckGame} title="Usa el código para unirte a una partida" placeholder="Código de la partida" buttonText="Ingresar" />
+            <JoinForm onSubmit={onCheckGame} title="Usa el código para unirte a una partida" placeholder="Código de la partida" buttonText="Ingresar" minLength={4} />
           )}
           {game && !game.status && <JoinForm onSubmit={onJoin} title="Introduce tu nombre" placeholder="Nombre" buttonText="Unirme" />}
           {game && game.status === 'joined' && <span>¡Te has unido! Esperando a que el anfitrión lance el juego.</span>}

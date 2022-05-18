@@ -1,3 +1,5 @@
+@import "../../../../style/colors";
+
 .host-answers__wrapper {
   @extend .grid;
 
@@ -18,3 +20,32 @@
   width: 100%;
   height: 50vh;
 }
+
+.bar-stats__bar:nth-child(1){
+  .bar-stats__bar-progress,
+  .bar-stats__bar-fixed {
+    background-color: $color-response-01;
+  }
+}
+
+.bar-stats__bar:nth-child(2){
+  .bar-stats__bar-progress,
+  .bar-stats__bar-fixed {
+    background-color: $color-response-02;
+  }
+}
+
+.bar-stats__bar:nth-child(3){
+  .bar-stats__bar-progress,
+  .bar-stats__bar-fixed {
+    background-color: $color-response-03;
+  }
+}
+
+.bar-stats__bar:nth-child(4){
+  .bar-stats__bar-progress,
+  .bar-stats__bar-fixed {
+    background-color: $color-response-04;
+  }
+}
+

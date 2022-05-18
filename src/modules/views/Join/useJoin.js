@@ -14,6 +14,7 @@ export default function useJoin(join) {
   }
 
   async function onJoin(name) {
+    console.log('onJoin', name);
     try {
       const userId = await joinGame(currentCode, name);
       const game = await getGame(currentCode);
