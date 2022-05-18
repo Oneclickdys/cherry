@@ -1,0 +1,13 @@
+.player-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-form__title {
+  margin-bottom: $separator-m;
+}
+
+.player-form__input {
+  margin-bottom: $gutter;
+}

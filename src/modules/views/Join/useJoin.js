@@ -13,10 +13,10 @@ export default function useJoin(join) {
     setGame(game);
   }
 
-  async function onJoin(name) {
-    console.log('onJoin', name);
+  async function onJoin(name, avatar) {
+    console.log('onJoin', name, avatar);
     try {
-      const userId = await joinGame(currentCode, name);
+      const userId = await joinGame(currentCode, name, avatar);
       const game = await getGame(currentCode);
       const quizz = await getQuiz(game.quiz.guid);
       setCurrentQuiz(quizz);

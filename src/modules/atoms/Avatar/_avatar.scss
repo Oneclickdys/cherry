@@ -1,0 +1,20 @@
+
+$avatar-size-default: 40px;
+$avatar-size-xl: 140px;
+$avatar-border-radius: 100%;
+$avatar-background-color: $color-gray-01;
+$avatar-border-size: 4px;
+
+.avatar {
+  background-size: cover !important;
+  border-radius: $avatar-border-radius;
+  background-color: $avatar-background-color;
+
+  height: $avatar-size-default;
+  width: $avatar-size-default;
+}
+
+.avatar--size-xl {
+  height: $avatar-size-xl;
+  width: $avatar-size-xl;
+}

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import UserInfo from '../../../atoms/UserInfo/UserInfo';
 
 const UsersList = ({ users }) => {
   return (
@@ -7,7 +8,7 @@ const UsersList = ({ users }) => {
       {users.map((user, idx) => {
         return (
           <div className="user-list__entry" key={idx}>
-            {user.name}
+            <UserInfo user={user} />
           </div>
         );
       })}

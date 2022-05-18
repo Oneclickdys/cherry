@@ -39,7 +39,7 @@ export default function useGuestQuestion({ currentPage }) {
     console.log('ANSWER PAYLOAD: ', payload);
     setLastPlayerResponse(payload);
     await addAnswer(gameCode, payload);
-    await updateTotalUserScore(gameCode, user.id, user.name, user.score + score);
+    await updateTotalUserScore(gameCode, user.id, user.name, user.avatarId, user.score + score);
   }
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function useGuestQuestion({ currentPage }) {
     currentQuiz,
     isAnswered,
     handleResponse,
-    user
+    user,
   };
 }
 

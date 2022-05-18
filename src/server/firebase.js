@@ -46,14 +46,14 @@ export async function createGame(code, quiz) {
   });
 }
 
-export async function joinGame(code, name) {
-  console.log(name);
+export async function joinGame(code, name, avatar) {
   const userId = getIdRandom();
   const db = getFirestore();
   await setDoc(doc(db, 'game', code, 'users', userId), {
     name,
     score: 0,
     id: userId,
+    avatarId: avatar,
   });
   return userId;
 }
@@ -183,10 +183,10 @@ export async function addAnswer(code, answer) {
   await setDoc(doc(db, 'game', code, 'answers', getIdRandom()), answer);
 }
 
-export async function updateTotalUserScore(code, userId, userName, totalScore) {
+export async function updateTotalUserScore(code, userId, userName, avatarId, totalScore) {
   const db = getFirestore();
 
-  await setDoc(doc(db, 'game', code, 'users', userId), { name: userName, score: totalScore, id: userId });
+  await setDoc(doc(db, 'game', code, 'users', userId), { name: userName, score: totalScore, id: userId, avatarId });
 }
 
 function getIdRandom() {

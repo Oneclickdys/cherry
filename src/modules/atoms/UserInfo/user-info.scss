@@ -1,0 +1,10 @@
+.user-info {
+  display: flex;
+  align-items: center;
+  border: 2px solid $color-first;
+  padding: $separator-s;
+}
+
+.user-info__name {
+  margin-left: $separator-s;
+}

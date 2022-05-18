@@ -1,0 +1,21 @@
+.avatars-select__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatars-select__avatar {
+  margin: $separator-xl;
+  transition-duration: 0.4s;
+  border: 4px solid $color-white;
+  padding: $separator-s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+}
+
+.avatars-select__avatar--selected {
+  border: 4px solid $color-first;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import BlockBar from '../../atoms/BlockBar/BlockBar';
+import UserInfo from '../../atoms/UserInfo/UserInfo';
 import useGuestFooter from './useGuestFooter';
 
 function GuestFooter({ initialScore }) {
@@ -8,10 +9,12 @@ function GuestFooter({ initialScore }) {
   const score = initialScore !== undefined ? initialScore : user.score;
 
   return (
-    <div className='guest-question__footer'>
+    <div className="guest-footer">
       <BlockBar>
         <React.Fragment>
-          <span>{user.name}</span>
+          <div className="guest-footer__user-info">
+            <UserInfo user={user} />
+          </div>
           <div>{score}</div>
         </React.Fragment>
       </BlockBar>
