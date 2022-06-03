@@ -3,12 +3,29 @@
   flex-direction: column;
   height: 100vh;
 }
-.host-question__header {
-
-}
 .host-question__body {
+  height: calc(100vh - 60px);
   position: relative;
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.host-question__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.host-question__title {
+  @extend .title-h2;
+  margin: $separator-m 0;
+}
+
+.host-question__image {
+  height: calc(100vh - 60px - 56px - 260px); //menos header, titulo y selector de opciones de lemonade
+}
+
+img {
+  height: 100%;
 }
 
 .timer-wrapper {
